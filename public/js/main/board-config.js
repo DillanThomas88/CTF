@@ -18,7 +18,7 @@ class Board {
                 div.setAttribute('col', j)
                 div.setAttribute('data',data)
                 data++
-                div.classList.add('cell', `h-11`, `w-11`, 'col-span-1', 'row-span-1', 'bg-zinc-400', 'border', 'flex','justify-center','items-center')
+                div.classList.add('cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', 'bg-zinc-400', 'border', 'flex','justify-center','items-center')
                 boardEL.append(div)
                 div.style.borderColor = '#0f0f0f'
             }
