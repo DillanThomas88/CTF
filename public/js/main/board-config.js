@@ -3,8 +3,8 @@ const boardContainer = document.querySelector('.board')
 const boardEL = document.createElement('div')
 const size = 11
 const cellSize = 14
-const selectableColor = 'bg-slate-500'
-const cellColor = 'bg-zinc-400'
+const selectableColor = 'bg-neutral-300'
+const cellColor = 'bg-neutral-400'
 
 class Board {
 
@@ -67,7 +67,6 @@ const highlightMovableCells = (target) => {
         document.querySelectorAll('.' + selectableColor).forEach(element => {
             element.classList.toggle(selectableColor)
             element.classList.toggle(cellColor)
-            console.log(element);
         });
 
         let r = parseInt(target.getAttribute('row'))
@@ -77,38 +76,70 @@ const highlightMovableCells = (target) => {
         let colArr = board.get('col', c)
 
         // row selectables
-        for (let i = c + 1; i < rowArr.length; i++) {
-            const element = rowArr[i];
-            if (!element) { return }
-            else {
-                element.classList.toggle(cellColor)
-                element.classList.toggle(selectableColor);
+        const getSelectables = (arr, key) => {
+            if
+            (key === 'up'){
+                for (let i = r + 1; i < arr.length; i++) {
+                    const element = arr[i];
+                    if (!element) { return }
+                    else {
+                        if(element.children[0]){return}
+                        else {
+                            element.classList.toggle(cellColor)
+                            element.classList.toggle(selectableColor);
+                        }
+                    }
+                }
             }
-        }
-        for (let i = c - 1; i >= 0; i--) {
-            const element = rowArr[i];
-            if (!element) { return }
-            else {
-                element.classList.toggle(cellColor)
-                element.classList.toggle(selectableColor);
+            else if
+            (key === 'down'){
+                for (let i = r - 1; i >= 0; i--) {
+                    const element = arr[i];
+                    if (!element) { return }
+                    else {
+                        if(element.children[0]){return}
+                        else {
+                            element.classList.toggle(cellColor)
+                            element.classList.toggle(selectableColor);
+                        }
+                    }
+                }
             }
-        }
-        // col selectables
-        for (let i = r + 1; i < colArr.length; i++) {
-            const element = colArr[i];
-            if (!element) { return }
-            else {
-                element.classList.toggle(cellColor)
-                element.classList.toggle(selectableColor);
+            else if 
+            (key === 'right'){
+                for (let i = c + 1; i < arr.length; i++) {
+                    const element = arr[i];
+                    if (!element) { return }
+                    else {
+                        if(element.children[0]){return}
+                        else {
+                            element.classList.toggle(cellColor)
+                            element.classList.toggle(selectableColor);
+                        }
+                    }
+                }
             }
-        }
-        for (let i = r - 1; i >= 0; i--) {
-            const element = colArr[i];
-            if (!element) { return }
-            else {
-                element.classList.toggle(cellColor)
-                element.classList.toggle(selectableColor);
+            else if
+            (key === 'left'){
+                for (let i = c - 1; i >= 0; i--) {
+                    const element = arr[i];
+                    if (!element) { return }
+                    else {
+                        if(element.children[0]){return}
+                        else {
+                            element.classList.toggle(cellColor)
+                            element.classList.toggle(selectableColor);
+                        }
+                    }
+                }
             }
+
         }
+        
+        getSelectables(rowArr, 'right')
+        getSelectables(rowArr, 'left')
+        getSelectables(colArr, 'up')
+        getSelectables(colArr, 'down')
+
     }
 }
