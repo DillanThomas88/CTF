@@ -82,6 +82,7 @@ const highlightMovableCells = (target) => {
                 for (let i = r + 1; i < arr.length; i++) {
                     const element = arr[i];
                     if (!element) { return }
+                    else if(element.classList.contains('wall')){ return }
                     else {
                         if(element.children[0]){return}
                         else {
@@ -96,6 +97,7 @@ const highlightMovableCells = (target) => {
                 for (let i = r - 1; i >= 0; i--) {
                     const element = arr[i];
                     if (!element) { return }
+                    else if(element.classList.contains('wall')){ return }
                     else {
                         if(element.children[0]){return}
                         else {
@@ -110,6 +112,7 @@ const highlightMovableCells = (target) => {
                 for (let i = c + 1; i < arr.length; i++) {
                     const element = arr[i];
                     if (!element) { return }
+                    else if(element.classList.contains('wall')){ return }
                     else {
                         if(element.children[0]){return}
                         else {
@@ -124,6 +127,7 @@ const highlightMovableCells = (target) => {
                 for (let i = c - 1; i >= 0; i--) {
                     const element = arr[i];
                     if (!element) { return }
+                    else if(element.classList.contains('wall')){ return }
                     else {
                         if(element.children[0]){return}
                         else {
