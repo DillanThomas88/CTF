@@ -4,6 +4,7 @@ const boardEL = document.createElement('div')
 const size = 11
 const cellSize = 14
 const selectableColor = 'bg-slate-500'
+const cellColor = 'bg-zinc-400'
 
 class Board {
 
@@ -18,7 +19,7 @@ class Board {
                 div.setAttribute('col', j)
                 div.setAttribute('data',data)
                 data++
-                div.classList.add('cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', 'bg-zinc-400', 'border', 'flex','justify-center','items-center')
+                div.classList.add('cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', cellColor, 'border', 'flex','justify-center','items-center')
                 boardEL.append(div)
                 div.style.borderColor = '#0f0f0f'
             }
@@ -65,6 +66,8 @@ const highlightMovableCells = (target) => {
     else {
         document.querySelectorAll('.' + selectableColor).forEach(element => {
             element.classList.toggle(selectableColor)
+            element.classList.toggle(cellColor)
+            console.log(element);
         });
 
         let r = parseInt(target.getAttribute('row'))
@@ -78,6 +81,7 @@ const highlightMovableCells = (target) => {
             const element = rowArr[i];
             if (!element) { return }
             else {
+                element.classList.toggle(cellColor)
                 element.classList.toggle(selectableColor);
             }
         }
@@ -85,6 +89,7 @@ const highlightMovableCells = (target) => {
             const element = rowArr[i];
             if (!element) { return }
             else {
+                element.classList.toggle(cellColor)
                 element.classList.toggle(selectableColor);
             }
         }
@@ -93,6 +98,7 @@ const highlightMovableCells = (target) => {
             const element = colArr[i];
             if (!element) { return }
             else {
+                element.classList.toggle(cellColor)
                 element.classList.toggle(selectableColor);
             }
         }
@@ -100,6 +106,7 @@ const highlightMovableCells = (target) => {
             const element = colArr[i];
             if (!element) { return }
             else {
+                element.classList.toggle(cellColor)
                 element.classList.toggle(selectableColor);
             }
         }
