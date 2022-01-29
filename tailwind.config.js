@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./index.html", "./public/js/main/board-config.js"],
+  content: ["./index.html", "./public/js/main/board-config.js", './public/js/main/piece-config.js'],
   theme: {
     extend: {
       fontFamily: {

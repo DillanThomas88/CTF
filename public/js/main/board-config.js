@@ -1,22 +1,25 @@
-const boardEL = document.querySelector('.board')
+const boardContainer = document.querySelector('.board')
 
-const board = document.createElement('div')
+const boardEL = document.createElement('div')
 const size = 11
 const cellSize = 14
+const selectableColor = 'bg-slate-500'
 
-class Game {
+class Board {
 
     init = () => {
-        board.classList.add('grid', `grid-cols-${size}`, `grid-rows-${size}`)
-        boardEL.append(board)
-
+        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`, 'scale-110')
+        boardContainer.append(boardEL)
+        let data = 0
         for (let i = 0; i < size; i++) {
             for (let j = 0; j < size; j++) {
                 const div = document.createElement('div')
                 div.setAttribute('row', i)
                 div.setAttribute('col', j)
-                div.classList.add('cell', `h-${cellSize}`, `w-${cellSize}`, 'col-span-1', 'row-span-1', 'bg-zinc-400', 'border')
-                board.append(div)
+                div.setAttribute('data',data)
+                data++
+                div.classList.add('cell', `h-11`, `w-11`, 'col-span-1', 'row-span-1', 'bg-zinc-400', 'border', 'flex','justify-center','items-center')
+                boardEL.append(div)
                 div.style.borderColor = '#0f0f0f'
             }
         }
@@ -33,47 +36,56 @@ class Game {
         if (type === 'row') { return Array.from(document.querySelectorAll(`[row='${int}']`)) }
         else if (type === 'col') { return Array.from(document.querySelectorAll(`[col='${int}']`)) }
     }
+
+    setStorage = () => {
+        let boardData = Array.from(document.querySelectorAll('[data]'))
+        let bpackage = []
+
+        for (let i = 0; i < boardData.length; i++) {
+            const element = boardData[i];
+            bpackage.push(element)
+        }
+        window.localStorage.setItem('board',JSON.stringify(boardData))
+    }
 }
 
+let board = new Board()
 
-
-let game = new Game()
-
-game.init()
-board.addEventListener('click', (e) => {
+board.init()
+board.setStorage()
+boardEL.addEventListener('click', (e) => {
     let target = e.target
     highlightMovableCells(target)
 
 })
 
 
-
 const highlightMovableCells = (target) => {
     if (!target.classList.contains('cell')) { return }
     else {
-        document.querySelectorAll('.bg-slate-500').forEach(element => {
-            element.classList.toggle('bg-slate-500')
+        document.querySelectorAll('.' + selectableColor).forEach(element => {
+            element.classList.toggle(selectableColor)
         });
 
         let r = parseInt(target.getAttribute('row'))
         let c = parseInt(target.getAttribute('col'))
 
-        let rowArr = game.get('row', r)
-        let colArr = game.get('col', c)
+        let rowArr = board.get('row', r)
+        let colArr = board.get('col', c)
 
         // row selectables
         for (let i = c + 1; i < rowArr.length; i++) {
             const element = rowArr[i];
             if (!element) { return }
             else {
-                element.classList.toggle('bg-slate-500');
+                element.classList.toggle(selectableColor);
             }
         }
         for (let i = c - 1; i >= 0; i--) {
             const element = rowArr[i];
             if (!element) { return }
             else {
-                element.classList.toggle('bg-slate-500');
+                element.classList.toggle(selectableColor);
             }
         }
         // col selectables
@@ -81,14 +93,14 @@ const highlightMovableCells = (target) => {
             const element = colArr[i];
             if (!element) { return }
             else {
-                element.classList.toggle('bg-slate-500');
+                element.classList.toggle(selectableColor);
             }
         }
         for (let i = r - 1; i >= 0; i--) {
             const element = colArr[i];
             if (!element) { return }
             else {
-                element.classList.toggle('bg-slate-500');
+                element.classList.toggle(selectableColor);
             }
         }
     }
