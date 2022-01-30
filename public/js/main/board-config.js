@@ -1,4 +1,5 @@
 const boardContainer = document.querySelector('.board')
+const bodyEL = document.querySelector('body')
 
 const boardEL = document.createElement('div')
 const size = 11
@@ -9,7 +10,7 @@ const cellColor = 'bg-neutral-400'
 class Board {
 
     init = () => {
-        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`, 'scale-110')
+        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`, 'scale-110','pb-16')
         boardContainer.append(boardEL)
         let data = 0
         for (let i = 0; i < size; i++) {
@@ -38,112 +39,24 @@ class Board {
         else if (type === 'col') { return Array.from(document.querySelectorAll(`[col='${int}']`)) }
     }
 
-    setStorage = () => {
-        let boardData = Array.from(document.querySelectorAll('[data]'))
-        let bpackage = []
+    resetSelectables = () => {
+        const reset = (direction) => {
+            let d = Array.from(document.querySelectorAll('.' + direction))
+            console.log(d);
+            for (let i = 0; i < d.length; i++) {
+                const element = d[i];
+                element.classList.toggle(direction)
+            }
 
-        for (let i = 0; i < boardData.length; i++) {
-            const element = boardData[i];
-            bpackage.push(element)
         }
-        window.localStorage.setItem('board',JSON.stringify(boardData))
+        reset('top')
+        reset('bottom')
+        reset('left')
+        reset('right')
     }
+
 }
 
 let board = new Board()
 
 board.init()
-board.setStorage()
-boardEL.addEventListener('click', (e) => {
-    let target = e.target
-    highlightMovableCells(target)
-
-})
-
-
-const highlightMovableCells = (target) => {
-    if (!target.classList.contains('cell')) { return }
-    else {
-        document.querySelectorAll('.' + selectableColor).forEach(element => {
-            element.classList.toggle(selectableColor)
-            element.classList.toggle(cellColor)
-        });
-
-        let r = parseInt(target.getAttribute('row'))
-        let c = parseInt(target.getAttribute('col'))
-
-        let rowArr = board.get('row', r)
-        let colArr = board.get('col', c)
-
-        // row selectables
-        const getSelectables = (arr, key) => {
-            if
-            (key === 'up'){
-                for (let i = r + 1; i < arr.length; i++) {
-                    const element = arr[i];
-                    if (!element) { return }
-                    else if(element.classList.contains('wall')){ return }
-                    else {
-                        if(element.children[0]){return}
-                        else {
-                            element.classList.toggle(cellColor)
-                            element.classList.toggle(selectableColor);
-                        }
-                    }
-                }
-            }
-            else if
-            (key === 'down'){
-                for (let i = r - 1; i >= 0; i--) {
-                    const element = arr[i];
-                    if (!element) { return }
-                    else if(element.classList.contains('wall')){ return }
-                    else {
-                        if(element.children[0]){return}
-                        else {
-                            element.classList.toggle(cellColor)
-                            element.classList.toggle(selectableColor);
-                        }
-                    }
-                }
-            }
-            else if 
-            (key === 'right'){
-                for (let i = c + 1; i < arr.length; i++) {
-                    const element = arr[i];
-                    if (!element) { return }
-                    else if(element.classList.contains('wall')){ return }
-                    else {
-                        if(element.children[0]){return}
-                        else {
-                            element.classList.toggle(cellColor)
-                            element.classList.toggle(selectableColor);
-                        }
-                    }
-                }
-            }
-            else if
-            (key === 'left'){
-                for (let i = c - 1; i >= 0; i--) {
-                    const element = arr[i];
-                    if (!element) { return }
-                    else if(element.classList.contains('wall')){ return }
-                    else {
-                        if(element.children[0]){return}
-                        else {
-                            element.classList.toggle(cellColor)
-                            element.classList.toggle(selectableColor);
-                        }
-                    }
-                }
-            }
-
-        }
-        
-        getSelectables(rowArr, 'right')
-        getSelectables(rowArr, 'left')
-        getSelectables(colArr, 'up')
-        getSelectables(colArr, 'down')
-
-    }
-}
