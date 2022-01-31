@@ -492,6 +492,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -524,6 +528,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
+.h-11 {
+  height: 2.75rem;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -538,6 +550,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-8 {
   width: 2rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.w-11 {
+  width: 2.75rem;
 }
 
 .rotate-180 {
@@ -601,6 +621,25 @@ Ensure the default browser behavior of the `hidden` attribute.
           animation: bounce 1s infinite;
 }
 
+@-webkit-keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 .grid-cols-11 {
   grid-template-columns: repeat(11, minmax(0, 1fr));
 }
@@ -657,12 +696,25 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .fill-black {
   fill: #000;
 }
 
 .fill-white {
   fill: #fff;
+}
+
+.fill-blue-400 {
+  fill: #60a5fa;
+}
+
+.fill-blue-500 {
+  fill: #3b82f6;
 }
 
 .pb-16 {

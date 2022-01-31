@@ -1,5 +1,11 @@
 boardEL.addEventListener('click', (e) => {
     let target = e.target
+    if(target.classList.contains('selected')){
+        board.resetSelectables()
+        target.classList.toggle('selected')
+        board.resetColors()
+        return
+    }
     highlightMovableCells(target)
     if(document.querySelector('.selected')){
         ifSelctedMoveTo(target)
@@ -44,15 +50,10 @@ const ifSelctedMoveTo = (target) => {
         } else {console.log('error');}
 
 
-        console.log(direction);
+        board.resetColors()
         
 
-        let arr = document.querySelectorAll('.' + selectableColor)
-        for (let i = 0; i < arr.length; i++) {
-            const element = arr[i];
-            element.classList.toggle(selectableColor)
-            element.classList.toggle(cellColor)
-        }
+
         let space = 350
         let distance = space * spaces
         let margin = 0
@@ -67,7 +68,7 @@ const ifSelctedMoveTo = (target) => {
                 clearInterval(timer)
                 margin = distance; 
                 from.children[0].style[direction] = `${margin/100}rem`
-                rowCol[fromINT].innerHTML = ''
+                rowCol[fromINT].innerHTML = null
                 rowCol[toINT].innerHTML = p
                 bodyEL.classList.toggle('pointer-events-none')
                 from.classList.toggle('selected')
@@ -180,3 +181,5 @@ const highlightMovableCells = (target) => {
 
 
 }
+
+

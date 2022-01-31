@@ -42,17 +42,27 @@ class Board {
     resetSelectables = () => {
         const reset = (direction) => {
             let d = Array.from(document.querySelectorAll('.' + direction))
-            console.log(d);
+            // console.log(d);
             for (let i = 0; i < d.length; i++) {
                 const element = d[i];
                 element.classList.toggle(direction)
             }
 
         }
+        
+
         reset('top')
         reset('bottom')
         reset('left')
         reset('right')
+    }
+    resetColors = () => {
+        let arr = document.querySelectorAll('.' + selectableColor)
+        for (let i = 0; i < arr.length; i++) {
+            const element = arr[i]
+            element.classList.toggle(selectableColor)
+            element.classList.toggle(cellColor)
+        }
     }
 
 }
