@@ -20,7 +20,7 @@ class Board {
                 div.setAttribute('col', j)
                 div.setAttribute('data',data)
                 data++
-                div.classList.add('cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', cellColor, 'border', 'flex','justify-center','items-center')
+                div.classList.add( 'cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', cellColor, 'border', 'flex','justify-center','items-center')
                 boardEL.append(div)
                 div.style.borderColor = '#0f0f0f'
             }
@@ -56,12 +56,33 @@ class Board {
         reset('left')
         reset('right')
     }
+
     resetColors = () => {
         let arr = document.querySelectorAll('.' + selectableColor)
         for (let i = 0; i < arr.length; i++) {
             const element = arr[i]
             element.classList.toggle(selectableColor)
             element.classList.toggle(cellColor)
+        }
+    }
+
+    info = (target) => {
+        let t
+        if(!target.children[0]){ return }
+        else { t = target.children[0] }
+        console.log('object');
+
+        if(t.classList.contains('white-star')){
+            let modal = document.createElement('div')
+            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','bottom-44','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-50','animate-bounce',)
+            modal.textContent = 'This is your Star, keep it safe!'
+            target.append(modal)
+        }
+        if(t.classList.contains('black-star')){
+            let modal = document.createElement('div')
+            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','top-4','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-50','animate-bounce','rotate-45')
+            modal.textContent = 'Bring the enemy star to home base!'
+            target.append(modal)
         }
     }
 
