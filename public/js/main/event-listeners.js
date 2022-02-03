@@ -33,15 +33,23 @@ const toggleReady = (e) => {
         console.log('btn error');
     }
 
-    element.classList.toggle('bg-blue-500')
+    element.classList.toggle('bg-emerald-500')
     element.classList.toggle('bg-stone-100')
     element.classList.toggle('text-stone-900')
+    element.classList.toggle('animate-pulse')
+    if(isPlayerOneReady){
+        playerOneBtn.textContent = 'Ready!'
+    } else {playerOneBtn.textContent = 'Ready?'}
+    if(isPlayerTwoReady){
+        playerTwoBtn.textContent = 'Ready!'
+    } else {playerTwoBtn.textContent = 'Ready?'}
 
     if (isPlayerOneReady && isPlayerTwoReady) {
         playerOneBtn.removeEventListener('click', toggleReady)
         playerTwoBtn.removeEventListener('click', toggleReady)
         playerOneBtn.classList.toggle('opacity-10')
         playerTwoBtn.classList.toggle('opacity-10')
+
         overlay.forEach(element => {
             element.classList.toggle('pointer-events-none')
             let fadeDur = 800
