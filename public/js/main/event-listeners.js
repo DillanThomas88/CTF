@@ -1,9 +1,16 @@
 const playerOneBtn = document.querySelector('.player-one-ready')
 const playerTwoBtn = document.querySelector('.player-two-ready')
 const overlay = document.querySelectorAll('.overlay')
-
+const overlayResults = document.querySelector('.overlay-results')
+const playerOneResults = document.querySelector('.player-one-results')
+const playerTwoResults = document.querySelector('.player-two-results')
+overlayResults.style.opacity = 0
+overlayResults.classList.toggle('hidden')
+overlayResults.addEventListener('click', function(){
+    location.reload()
+})
 let opac = .8
-overlay[0].style.opacity = opac
+// overlay[0].style.opacity = opac
 overlay[1].style.opacity = opac
 
 boardEL.addEventListener('click', (e) => {
@@ -74,7 +81,7 @@ playerTwoBtn.addEventListener('click', toggleReady)
 
 
 const ifSelctedMoveTo = (target) => {
-    if (!target.classList.contains(selectableColor)) { return }
+    if (target.classList.contains(cellColor)) {return }
     else {
         const getDirection = (target) => {
 
@@ -134,11 +141,11 @@ const ifSelctedMoveTo = (target) => {
                 from.children[0].style[direction] = `${margin / 10}rem`
                 if (rowCol[fromINT].getAttribute('data') == blackStarData) {
                     rowCol[fromINT].innerHTML = barrier
-                    rowCol[fromINT].children[0].classList.toggle('hidden')
+
                     rowCol[fromINT].children[0].classList.toggle('black-barrier')
                 } else if (rowCol[fromINT].getAttribute('data') == whiteStarData) {
                     rowCol[fromINT].innerHTML = barrier
-                    rowCol[fromINT].children[0].classList.toggle('hidden')
+
                     rowCol[fromINT].children[0].classList.toggle('white-barrier')
                 } else {
 
@@ -147,12 +154,10 @@ const ifSelctedMoveTo = (target) => {
                 if (rowCol[toINT].children[0]) {
                     if (rowCol[toINT].children[0].classList.contains('white-star')) {
                         rowCol[toINT].innerHTML = `${blackCarrier}\n${barrier}`
-                        rowCol[toINT].children[1].classList.toggle('hidden')
                         rowCol[toINT].children[1].classList.toggle('white-barrier')
 
                     } else if (rowCol[toINT].children[0].classList.contains('black-star')) {
                         rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
-                        rowCol[toINT].children[1].classList.toggle('hidden')
                         rowCol[toINT].children[1].classList.toggle('black-barrier')
                     } else { console.log('error'); }
                 } else {
@@ -161,6 +166,11 @@ const ifSelctedMoveTo = (target) => {
                 bodyEL.classList.toggle('pointer-events-none')
                 from.classList.toggle('selected')
                 board.resetSelectables()
+                if(target.classList.contains(winColor)){
+                    whoWon(rowCol[toINT])
+                    fadeInResults()
+                    return
+                }
                 nextTurn()
                 return
             }

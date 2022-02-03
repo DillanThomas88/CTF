@@ -7,7 +7,7 @@ const boardEL = document.createElement('div')
 class Board {
 
     init = () => {
-        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`)
+        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`,)
         boardContainer.append(boardEL)
         let data = 0
         for (let i = 0; i < size; i++) {
