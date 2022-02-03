@@ -6,7 +6,7 @@ const winColor = 'bg-yellow-400'
 
 const black = 'fill-stone-700'
 const white = 'fill-emerald-200'
-const opacity = 'opacity-20'
+const opacity = 'opacity-10'
 
 let isWhitesTurn = true
 let bBarrier

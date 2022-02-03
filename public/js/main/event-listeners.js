@@ -52,14 +52,14 @@ const toggleReady = (e) => {
 
         overlay.forEach(element => {
             element.classList.toggle('pointer-events-none')
-            let fadeDur = 800
+            let fadeDur = opac * 100
             let timer = setInterval(() => {
                 fadeDur--
                 if(fadeDur < 0){
                     clearInterval(timer)
                     element.classList.toggle('hidden')
                 }
-                element.style.opacity = `${fadeDur/1000}`
+                element.style.opacity = `${fadeDur/100}`
             }, 1);
             
         });
