@@ -1,8 +1,6 @@
 module.exports = {
   content: ["./index.html", 
-  "./public/js/main/board-config.js", 
-  './public/js/main/piece-config.js',
-  './public/js/main/event-listeners.js'
+  "./public/js/main/*.js", 
 ],
   theme: {
     extend: {

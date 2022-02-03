@@ -1,6 +1,14 @@
+const playerOneBtn = document.querySelector('.player-one-ready')
+const playerTwoBtn = document.querySelector('.player-two-ready')
+const overlay = document.querySelectorAll('.overlay')
+
+let opac = .8
+overlay[0].style.opacity = opac
+overlay[1].style.opacity = opac
+
 boardEL.addEventListener('click', (e) => {
     let target = e.target
-    board.info(target)
+    // board.info(target)
     if (target.classList.contains('selected')) {
         board.resetSelectables()
         target.classList.toggle('selected')
@@ -14,6 +22,48 @@ boardEL.addEventListener('click', (e) => {
 
 
 })
+
+const toggleReady = (e) => {
+    let element = e.target
+    if (element.classList.contains('player-one-ready')) {
+        isPlayerOneReady = !isPlayerOneReady
+    } else if (element.classList.contains('player-two-ready')) {
+        isPlayerTwoReady = !isPlayerTwoReady
+    } else {
+        console.log('btn error');
+    }
+
+    element.classList.toggle('bg-blue-500')
+    element.classList.toggle('bg-stone-100')
+    element.classList.toggle('text-stone-900')
+
+    if (isPlayerOneReady && isPlayerTwoReady) {
+        playerOneBtn.removeEventListener('click', toggleReady)
+        playerTwoBtn.removeEventListener('click', toggleReady)
+        playerOneBtn.classList.toggle('opacity-10')
+        playerTwoBtn.classList.toggle('opacity-10')
+        overlay.forEach(element => {
+            element.classList.toggle('pointer-events-none')
+            let fadeDur = 800
+            let timer = setInterval(() => {
+                fadeDur--
+                if(fadeDur < 0){
+                    clearInterval(timer)
+                    element.classList.toggle('hidden')
+                }
+                element.style.opacity = `${fadeDur/1000}`
+            }, 1);
+            
+        });
+    }
+
+
+}
+
+playerOneBtn.addEventListener('click', toggleReady)
+playerTwoBtn.addEventListener('click', toggleReady)
+
+
 
 const ifSelctedMoveTo = (target) => {
     if (!target.classList.contains(selectableColor)) { return }
@@ -57,48 +107,69 @@ const ifSelctedMoveTo = (target) => {
         board.resetColors()
 
 
-        
 
-        let space = 350
+
+        let space = 35
         let distance = space * spaces
         let margin = 0
         bodyEL.classList.toggle('pointer-events-none')
         let timer = setInterval(() => {
-            margin += 5
+            margin += 1
             if (from.children[0]) {
 
-                from.children[0].style[direction] = `${margin / 100}rem`
+                from.children[0].style[direction] = `${margin / 10}rem`
             }
             if (margin >= distance) {
-                
+
                 clearInterval(timer)
                 margin = distance;
-                from.children[0].style[direction] = `${margin / 100}rem`
-                rowCol[fromINT].innerHTML = null
-                if(rowCol[toINT].children[0]){
-                    if(rowCol[toINT].children[0].classList.contains('white-star')){
-                        rowCol[toINT].innerHTML = blackCarrier
-                    } else if (rowCol[toINT].children[0].classList.contains('black-star')){
-                        rowCol[toINT].innerHTML = whiteCarrier                        
-                    } else {console.log('error'); }
+                from.children[0].style[direction] = `${margin / 10}rem`
+                if (rowCol[fromINT].getAttribute('data') == blackStarData) {
+                    rowCol[fromINT].innerHTML = barrier
+                    rowCol[fromINT].children[0].classList.toggle('hidden')
+                    rowCol[fromINT].children[0].classList.toggle('black-barrier')
+                } else if (rowCol[fromINT].getAttribute('data') == whiteStarData) {
+                    rowCol[fromINT].innerHTML = barrier
+                    rowCol[fromINT].children[0].classList.toggle('hidden')
+                    rowCol[fromINT].children[0].classList.toggle('white-barrier')
+                } else {
+
+                    rowCol[fromINT].innerHTML = null
+                }
+                if (rowCol[toINT].children[0]) {
+                    if (rowCol[toINT].children[0].classList.contains('white-star')) {
+                        rowCol[toINT].innerHTML = `${blackCarrier}\n${barrier}`
+                        rowCol[toINT].children[1].classList.toggle('hidden')
+                        rowCol[toINT].children[1].classList.toggle('white-barrier')
+
+                    } else if (rowCol[toINT].children[0].classList.contains('black-star')) {
+                        rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
+                        rowCol[toINT].children[1].classList.toggle('hidden')
+                        rowCol[toINT].children[1].classList.toggle('black-barrier')
+                    } else { console.log('error'); }
                 } else {
                     rowCol[toINT].innerHTML = p
                 }
                 bodyEL.classList.toggle('pointer-events-none')
                 from.classList.toggle('selected')
                 board.resetSelectables()
+                nextTurn()
                 return
             }
-        }, 1);
+        }, 5);
     }
 }
 
 const highlightMovableCells = (target) => {
+    let piece
+    let isCarrier = false
+    if (isWhitesTurn) { piece = ['white-marker', 'white-carrier'] }
+    else { piece = ['black-marker', 'black-carrier'] }
     if (!target.classList.contains('cell')) { return }
     else {
         if (!target.children[0]) { return }
         else if
-            (target.children[0].classList.contains('piece')) {
+            (target.children[0].classList.contains(piece[0]) || target.children[0].classList.contains(piece[1])) {
             if (document.querySelector('.selected')) {
                 document.querySelector('.selected').classList.toggle('selected')
             }
@@ -118,18 +189,25 @@ const highlightMovableCells = (target) => {
             let colArr = board.get('col', c)
 
             // row selectables
-            const getSelectables = (arr, key, target) => {
+            const getSelectables = (arr, key, target, isCarrier) => {
                 if
                     (key === 'bottom') {
                     for (let i = r + 1; i < arr.length; i++) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) { return }
+                        else if (element.classList.contains('wall')) {
+                            if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(winColor);
+                                element.classList.toggle(key);
+                            }
+                            return
+                        }
                         else {
 
                             if (element.children[0]) {
                                 if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if(isTheSame(element, target)){return}
+                                    if (isTheSame(element, target)) { return }
                                     element.classList.toggle(cellColor)
                                     element.classList.toggle(selectableColor);
                                     element.classList.toggle(key);
@@ -149,11 +227,18 @@ const highlightMovableCells = (target) => {
                     for (let i = r - 1; i >= 0; i--) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) { return }
+                        else if (element.classList.contains('wall')) {
+                            if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(winColor);
+                                element.classList.toggle(key);
+                            }
+                            return
+                        }
                         else {
                             if (element.children[0]) {
                                 if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if(isTheSame(element, target)){return}
+                                    if (isTheSame(element, target)) { return }
                                     element.classList.toggle(cellColor)
                                     element.classList.toggle(selectableColor);
                                     element.classList.toggle(key);
@@ -173,11 +258,19 @@ const highlightMovableCells = (target) => {
                     for (let i = c + 1; i < arr.length; i++) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) { return }
+                        else if (element.classList.contains('wall')) {
+                            console.log(target);
+                            if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(winColor);
+                                element.classList.toggle(key);
+                            }
+                            return
+                        }
                         else {
                             if (element.children[0]) {
                                 if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if(isTheSame(element, target)){return}
+                                    if (isTheSame(element, target)) { return }
                                     element.classList.toggle(cellColor)
                                     element.classList.toggle(selectableColor);
                                     element.classList.toggle(key);
@@ -197,11 +290,18 @@ const highlightMovableCells = (target) => {
                     for (let i = c - 1; i >= 0; i--) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) { return }
+                        else if (element.classList.contains('wall')) {
+                            if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(winColor);
+                                element.classList.toggle(key);
+                            }
+                            return
+                        }
                         else {
                             if (element.children[0]) {
                                 if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if(isTheSame(element, target)){return}
+                                    if (isTheSame(element, target)) { return }
                                     element.classList.toggle(cellColor)
                                     element.classList.toggle(selectableColor);
                                     element.classList.toggle(key);
@@ -221,20 +321,20 @@ const highlightMovableCells = (target) => {
                 function isTheSame(element, target) {
                     let pieceColor
                     let targetColor
-                    if (target.children[0].classList.contains('black')) { pieceColor = 'black'} 
-                    if (target.children[0].classList.contains('white')) { pieceColor = 'white'} 
-                    if (element.children[0].classList.contains('black')) { targetColor = 'black'} 
-                    if (element.children[0].classList.contains('white')) { targetColor = 'white'} 
-                    console.log(pieceColor,targetColor);
-                    if (pieceColor === targetColor) { return true} 
-                    else {return false}
+                    if (target.children[0].classList.contains('black')) { pieceColor = 'black' }
+                    if (target.children[0].classList.contains('white')) { pieceColor = 'white' }
+                    if (element.children[0].classList.contains('black')) { targetColor = 'black' }
+                    if (element.children[0].classList.contains('white')) { targetColor = 'white' }
+                    console.log(pieceColor, targetColor);
+                    if (pieceColor === targetColor) { return true }
+                    else { return false }
                 }
             }
 
-            getSelectables(rowArr, 'right', target)
-            getSelectables(rowArr, 'left', target)
-            getSelectables(colArr, 'top', target)
-            getSelectables(colArr, 'bottom', target)
+            getSelectables(rowArr, 'right', target, isCarrier)
+            getSelectables(rowArr, 'left', target, isCarrier)
+            getSelectables(colArr, 'top', target, isCarrier)
+            getSelectables(colArr, 'bottom', target, isCarrier)
         }
     }
 

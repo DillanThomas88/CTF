@@ -2,15 +2,12 @@ const boardContainer = document.querySelector('.board')
 const bodyEL = document.querySelector('body')
 
 const boardEL = document.createElement('div')
-const size = 11
-const cellSize = 14
-const selectableColor = 'bg-neutral-300'
-const cellColor = 'bg-neutral-400'
+
 
 class Board {
 
     init = () => {
-        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`, 'scale-110','pb-16')
+        boardEL.classList.add('grid', `grid-cols-11`, `grid-rows-11`)
         boardContainer.append(boardEL)
         let data = 0
         for (let i = 0; i < size; i++) {
@@ -70,17 +67,23 @@ class Board {
         let t
         if(!target.children[0]){ return }
         else { t = target.children[0] }
-        console.log('object');
+        let deleted = document.querySelectorAll('.modal')
+        if(deleted.length > 0){
+            deleted.forEach(element => {
+                element.remove()
+            });
+            return
+        }
 
         if(t.classList.contains('white-star')){
             let modal = document.createElement('div')
-            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','bottom-44','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-50','animate-bounce',)
+            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','bottom-44','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-30',)
             modal.textContent = 'This is your Star, keep it safe!'
             target.append(modal)
         }
         if(t.classList.contains('black-star')){
             let modal = document.createElement('div')
-            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','top-4','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-50','animate-bounce','rotate-45')
+            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','top-4','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-30',)
             modal.textContent = 'Bring the enemy star to home base!'
             target.append(modal)
         }
