@@ -5,8 +5,9 @@ playerOneBtn.addEventListener('click', toggleReady)
 playerTwoBtn.addEventListener('click', toggleReady)
 layoutBtns.forEach(element => {
     element.addEventListener('click',function(e){
+        
         layout = parseInt(e.target.getAttribute('layout'))
-         
+         toggleLayouts(e)
     })
 });
 

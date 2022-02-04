@@ -21,7 +21,8 @@ let whiteStarData
 let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
-
+const notReadyColor = 'bg-emerald-500'
+const readyColor = 'bg-neutral-100'
 
 const nextTurn = () => {
     isWhitesTurn = !isWhitesTurn
@@ -75,4 +76,23 @@ const fadeInResults = () => {
             overlay[1].style.opacity = incriment/duration
         }
     }, 1);
+}
+
+const findActiveBtnsAndReset = () => {
+    layoutBtns.forEach(element => {
+        if(element.classList.contains('active')){ 
+            element.classList.toggle('active')
+            element.classList.toggle(readyColor)
+            element.classList.toggle(notReadyColor)
+            element.classList.toggle('text-neutral-800')
+        }
+    })
+}
+const toggleLayouts = (e) => {
+    findActiveBtnsAndReset()
+    let element = e.target
+    element.classList.toggle('active')
+    element.classList.toggle(notReadyColor)
+    element.classList.toggle(readyColor)
+    element.classList.toggle('text-neutral-800')
 }
