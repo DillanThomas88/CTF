@@ -12,6 +12,8 @@
 <body style="background-color: #0f0f0f;"
     class=" uppercase font-bold w-screen h-screen  text-stone-100  grid content-center justify-center ">
 
+    <!-- results screen -->
+
     <div class="overlay-results z-50 absolute w-full h-full grid text-4xl content-center justify-center">
         <div class="player-two-results rotate-180 text-center animate-pulse">You Lost</div>
         <div class="grid content-center justify-center py-6">
@@ -28,174 +30,33 @@
         <div class="player-one-results animate-pulse text-center">Victory</div>
     </div>
 
-    <section class="flex justify-between rotate-180 pt-5">
-        <div class="pt-14 w-4/6 -ml-7  text-2xl">
+    <!-- player two -->
+
+    <section class="flex w-full rotate-180">
+        <div class="w-full -ml-7  text-2xl">
             <div>capture the flag</div>
-            <hr style="height: 1px;" class="bg-stone-900 borber-none opacity-30 my-2">
+            <hr style="height: 1px;" class="bg-stone-900 borber-none opacity-30 my-1">
             <div class="normal-case">
-                <div class="text-sm text-stone-400 whitespace-nowrap">- Seek out your opponents flag and bring it to
-                    your home base.</div>
-                <div class="text-sm text-stone-400 whitespace-nowrap">- Prevent your opponent from taking your star.
+                <div class="text-sm text-stone-400">Seek out your opponents flag and bring it home.
                 </div>
             </div>
         </div>
-        <button class="player-two-ready bg-emerald-500 text-white text-4xl font-bold ml-16 py-2 px-4 ml-5 h-20 mt-16 w-full rounded animate-pulse ">
-            Ready?
-        </button>
-
+        <div class="w-full text-4xl font-thin flex flex-col  items-end -mr-7">
+            <div class="player-two-time opacity-30">10 : 00 : 00</div>
+        </div>
     </section>
-    <section class="board  scale-110">
+
+    <!-- board -->
+
+    <section class="board  scale-110 my-12">
         <div class=" overlay absolute bg-transparent  w-full h-full z-50  rounded-lg text-white text-center grid content-between text-white">
-            <div class="rotate-180 bg-neutral-600 rounded-b-lg h-10 flex justify-center items-center " >
-                Choose a Map
-            </div>
-            <section class="selection-container flex justify-around">
-                <button layout="1" class="layout-btn text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
-                    <div class="pointer-events-none rotate-180 flex justify-center py-1">Corners</div>
-                    <div class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-1 rounded-sm mx-2">
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-blue-100 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <div class="bg-blue-500 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-emerald-100 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-emerald-500 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        
+            <div class="player-two-ready rotate-180 bg-emerald-500 text-white text-xl font-bold animate-pulse  rounded-b-lg h-10 flex justify-center items-center ">
+                Ready?
+        </div>
+            <section class="selection-container grid content-center grid-rows-2 grid-cols-2 gap-20 mx-24">
 
-
-
-    
-                        
-                    </div>
-                    <div class="pointer-events-none flex justify-center py-1">Corners</div>
-                </button>
-                <button layout="2" class="layout-btn text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
-                    <div class="pointer-events-none rotate-180 flex justify-center py-1">Pillars</div>
+                <button layout="2" class="layout-btn grid justify-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                    <div class="pointer-events-none rotate-180 flex justify-center py-1">Parallel</div>
                     <div class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-1 rounded-sm mx-2">
                         <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -330,10 +191,10 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>                        
                     </div>
-                    <div class="pointer-events-none flex justify-center py-1">Pillars</div>
+                    <div class="pointer-events-none flex justify-center py-1">Parallel</div>
                 </button>
-                <button layout="3" class="layout-btn text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
-                    <div class="pointer-events-none rotate-180 flex justify-center py-1">Pillars</div>
+                <button layout="1" class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                    <div class="pointer-events-none rotate-180 flex justify-center py-1">Crossover</div>
                     <div class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-1 rounded-sm mx-2">
                         <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -342,10 +203,22 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-blue-100 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -369,20 +242,8 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600  h-2 w-2"></div>
-                        <div class="bg-neutral-600  h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600  h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
                         <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -393,8 +254,8 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-blue-500 h-2 w-2"></div>
                         <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -408,8 +269,8 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -420,8 +281,8 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <!-- new row -->
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -445,10 +306,10 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <!-- new row -->
                         <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-100 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
@@ -459,53 +320,192 @@
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
                         <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>
-                        <div class="bg-neutral-600 h-2 w-2"></div>                      
+                        <div class="bg-neutral-600 h-2 w-2"></div>                        
                     </div>
-                    <div class="pointer-events-none flex justify-center py-1">Pillars</div>
+                    <div class="pointer-events-none flex justify-center py-1">Crossover</div>
                 </button>
+                <button layout="3" class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                    <div class="pointer-events-none rotate-180 flex justify-center py-1">Bottleneck</div>
+                    <div class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-1 rounded-sm mx-2">
+                        <!-- new row -->
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-blue-100 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600  h-2 w-2"></div>
+                        <div class="bg-neutral-600  h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600  h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-blue-500 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <!-- middle -->
+                        <div class="bg-neutral-800 h-2 w-2"></div>
+                        <div class="bg-neutral-800 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-800 h-2 w-2"></div>
+                        <div class="bg-neutral-800 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-100 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>
+                        <!-- new row -->
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-neutral-600 h-2 w-2"></div>
+                        <div class="bg-emerald-500 h-2 w-2"></div>                     
+                    </div>
+                    <div class="pointer-events-none flex justify-center py-1">Bottleneck</div>
+                </button>
+                
 
 
 
             </section>
-            <div class="bg-neutral-600 rounded-b-lg h-10 flex justify-center items-center ">
-                Choose a Map
+            <div class="player-one-ready bg-emerald-500 text-white text-xl font-bold animate-pulse  rounded-b-lg h-10 flex justify-center items-center ">
+                    Ready?
             </div>
 
         </div>
         <div class=" overlay absolute bg-black   w-full h-full z-40 rounded-lg"></div>
         <!-- board pieces -->
     </section>
-    <section class="flex justify-between pt-5">
-        <div class="pt-14 w-4/6 -ml-7  text-2xl">
+
+    <!-- player one -->
+
+    <section class="flex w-full">
+        <div class="w-full -ml-7  text-2xl">
             <div>capture the flag</div>
-            <hr style="height: 1px;" class="bg-stone-900 borber-none opacity-30 my-2">
+            <hr style="height: 1px;" class="bg-stone-900 borber-none opacity-30 my-1">
             <div class="normal-case">
-                <div class="text-sm text-stone-400 whitespace-nowrap">- Seek out your opponents flag and bring it to
-                    your home base.</div>
-                <div class="text-sm text-stone-400 whitespace-nowrap">- Prevent your opponent from taking your star.
+                <div class="text-sm text-stone-400">Seek out your opponents flag and bring it home.
                 </div>
             </div>
         </div>
-        <button class="player-one-ready bg-emerald-500 text-white text-4xl font-bold ml-16 py-2 px-4 ml-5 h-20 mt-16 w-full rounded animate-pulse ">
-            Ready?
-        </button>
-
+        <div class="w-full text-4xl font-thin flex flex-col  items-end -mr-7">
+            <div class="player-one-time opacity-30">10 : 00 : 00</div>
+        </div>
     </section>
 </body>
 
 
-<script src="./public/js/main/init.js"></script>
+<script src="./public/js/game-manager.js"></script>
 <script src="./public/js/main/board-config.js"></script>
 <script src="./public/js/main/piece-config.js"></script>
 <script src="./public/js/main/event-listeners.js"></script>
-<script src="./public/js/game-manager.js"></script>
+<script src="./public/js/main/init.js"></script>
 
 
 </html>

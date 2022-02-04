@@ -59,7 +59,7 @@ const whiteStar = `<div class="relative white white-star pointer-events-none h-1
 </svg>
 </div> `
 const barrier = `<div class="pointer-events-none z-0 absolute w-40 h-40">
-<svg class="rotate-90 pointer-events-none w-full h-full fill-neutral-900 ${opacity}" version="1.1" viewBox="0 0 128 128" >
+<svg class="rotate-90 pointer-events-none w-full h-full fill-neutral-800 ${opacity}" version="1.1" viewBox="0 0 128 128" >
 <g>
  <path d="m6.3984 6.3984v25.602l25.602-25.602z"/>
  <path d="m6.3984 57.602v25.598l76.801-76.801h-25.598"/>
@@ -172,6 +172,22 @@ class Piece {
 
                 this.setWall(board.get('row', 5), 3, 2)
                 this.setWall(board.get('row', 5), 8, 2)
+
+
+
+                this.setScoreZone()
+                break;
+            case 3:
+                this.setPiece(board.get('row', 2), blackStar, 9, 1, 'black-score')
+                this.setPiece(board.get('col', 0), blackMarker, 1, 5)
+
+
+                this.setPiece(board.get('row', 8), whiteStar, 1, 1, 'white-score')
+                this.setPiece(board.get('col', 10), whiteMarker, 7, 5)
+
+
+                this.setWall(board.get('row', 5), 1, 2)
+                this.setWall(board.get('row', 5), 10, 2)
 
 
 
