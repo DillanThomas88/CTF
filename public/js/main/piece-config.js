@@ -69,15 +69,21 @@ const barrier = `<div class="pointer-events-none z-0 absolute w-40 h-40">
 </g>
 </svg>
 </div>`
+const walls = `
+<div class="h-full w-full z-30 ">
+<svg class="${wall}" viewBox="0 0 128 128" >
+ <path d="m12 8h104c2.2109 0 4 2.2109 4 4v104c0 2.2109-1.7891 4-4 4h-104c-2.2109 0-4-2.2109-4-4v-104c0-2.2109 1.7891-4 4-4z" />
+</svg>
+</div>`
 
 
 class Piece {
 
     setPiece = (arr, piece, startingInt, amount, type) => {
-        if (amount === 1) {
+        if (type) {
             arr[startingInt].innerHTML = piece
             arr[startingInt].classList.add(type)
-            if(type === 'black-score'){
+            if (type === 'black-score') {
                 bBarrier = arr[startingInt]
                 blackStarData = arr[startingInt].getAttribute('data')
             } else {
@@ -95,8 +101,20 @@ class Piece {
 
     }
 
+    setWall = (arr, startingInt, amount) => {
+        for (let i = startingInt - 1; i < amount + startingInt - 1; i++) {
+            const element = arr[i];
+            // element.classList.toggle(cellColor)
+            // element.classList.toggle(wall)
+            element.classList.toggle('wall')
+            // element.classList.toggle('rounded-xl')
+            element.innerHTML = walls
+
+        }
+    }
+
     setScoreZone = () => {
-        let walls = document.querySelectorAll('.wall')
+        let zones = document.querySelectorAll('.zone')
         let arr = [document.querySelector('.white-score'), document.querySelector('.black-score')]
         let t
 
@@ -106,8 +124,8 @@ class Piece {
         else {
             t = 1
         }
-        walls.forEach(element => {
-            element.classList.toggle('wall')
+        zones.forEach(element => {
+            element.classList.toggle('zone')
         });
         const element = arr[t];
         let r = parseInt(element.getAttribute('row'))
@@ -115,30 +133,56 @@ class Piece {
         let newArr = board.get('row', r)
         let newArr2 = board.get('row', r + 1)
         let newArr3 = board.get('row', r - 1)
-        newArr[c + 1].classList.toggle('wall')
-        newArr[c - 1].classList.toggle('wall')
-        newArr2[c + 1].classList.toggle('wall')
-        newArr2[c - 1].classList.toggle('wall')
-        newArr2[c].classList.toggle('wall')
-        newArr3[c + 1].classList.toggle('wall')
-        newArr3[c - 1].classList.toggle('wall')
-        newArr3[c].classList.toggle('wall')
+        let zone = [newArr[c + 1], newArr[c - 1], newArr2[c + 1], newArr2[c - 1], newArr2[c], newArr3[c + 1], newArr3[c - 1], newArr3[c]]
+        zone.forEach(element => {
+            element.classList.toggle('zone')
+        });
     }
 
-    init = () => {
 
-        this.setPiece(board.get('col', 0), whiteMarker, 7, 2)
-        this.setPiece(board.get('col', 1), whiteMarker, 7, 2)
-        this.setPiece(board.get('row', 10), whiteMarker, 4, 2)
-        this.setPiece(board.get('row', 9), whiteMarker, 4, 2)
-        this.setPiece(board.get('row', 9), whiteStar, 1, 1, 'white-score')
 
-        this.setPiece(board.get('col', 10), blackMarker, 4, 2)
-        this.setPiece(board.get('col', 9), blackMarker, 4, 2)
-        this.setPiece(board.get('row', 0), blackMarker, 7, 2)
-        this.setPiece(board.get('row', 1), blackMarker, 7, 2)
-        this.setPiece(board.get('row', 1), blackStar, 9, 1, 'black-score')
-        this.setScoreZone()
+    init = (layout) => {
+
+        switch (layout) {
+            case 1:
+                this.setPiece(board.get('row', 1), blackStar, 9, 1, 'black-score')
+                this.setPiece(board.get('col', 10), blackMarker, 4, 2)
+                this.setPiece(board.get('col', 9), blackMarker, 4, 2)
+                this.setPiece(board.get('row', 0), blackMarker, 7, 2)
+                this.setPiece(board.get('row', 1), blackMarker, 7, 2)
+
+                this.setPiece(board.get('row', 9), whiteStar, 1, 1, 'white-score')
+                this.setPiece(board.get('col', 0), whiteMarker, 7, 2)
+                this.setPiece(board.get('col', 1), whiteMarker, 7, 2)
+                this.setPiece(board.get('row', 10), whiteMarker, 4, 2)
+                this.setPiece(board.get('row', 9), whiteMarker, 4, 2)
+
+                this.setScoreZone()
+                break;
+            case 2:
+                this.setPiece(board.get('row', 1), blackStar, 5, 1, 'black-score')
+                this.setPiece(board.get('col', 2), blackMarker, 1, 3)
+                this.setPiece(board.get('col', 8), blackMarker, 1, 3)
+
+
+                this.setPiece(board.get('row', 9), whiteStar, 5, 1, 'white-score')
+                this.setPiece(board.get('col', 2), whiteMarker, 9, 3)
+                this.setPiece(board.get('col', 8), whiteMarker, 9, 3)
+
+
+                this.setWall(board.get('row', 5), 3, 2)
+                this.setWall(board.get('row', 5), 8, 2)
+
+
+
+                this.setScoreZone()
+                break;
+
+            default:
+                break;
+        }
+
+
 
         document.querySelectorAll('.black-marker').forEach(element => {
             element.classList.toggle('opacity-50')
@@ -148,12 +192,15 @@ class Piece {
     }
 
 
+    createLayouts = (parent) => {
+        // let container = document.createElement
+    }
+
+
 
 }
 
-const piece = new Piece
 
-piece.init()
 
 
 

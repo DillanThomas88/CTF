@@ -91,6 +91,5 @@ class Board {
 
 }
 
-let board = new Board()
 
-board.init()
+

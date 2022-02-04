@@ -4,6 +4,7 @@ const selectableColor = 'bg-neutral-300'
 const cellColor = 'bg-neutral-400'
 const winColor = 'bg-yellow-400'
 
+const wall = 'fill-neutral-800'
 const black = 'fill-stone-800'
 const white = 'fill-stone-100'
 const opacity = 'opacity-10'

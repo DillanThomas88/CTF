@@ -4,6 +4,8 @@ const overlay = document.querySelectorAll('.overlay')
 const overlayResults = document.querySelector('.overlay-results')
 const playerOneResults = document.querySelector('.player-one-results')
 const playerTwoResults = document.querySelector('.player-two-results')
+const layoutBtns = document.querySelectorAll('.layout-btn')
+
 overlayResults.style.opacity = 0
 overlayResults.classList.toggle('hidden')
 overlayResults.addEventListener('click', function(){
@@ -52,6 +54,10 @@ const toggleReady = (e) => {
     } else {playerTwoBtn.textContent = 'Ready?'}
 
     if (isPlayerOneReady && isPlayerTwoReady) {
+
+// instantiate board layout
+spawnLayout(layout)
+
         playerOneBtn.removeEventListener('click', toggleReady)
         playerTwoBtn.removeEventListener('click', toggleReady)
         playerOneBtn.classList.toggle('opacity-10')
@@ -75,8 +81,7 @@ const toggleReady = (e) => {
 
 }
 
-playerOneBtn.addEventListener('click', toggleReady)
-playerTwoBtn.addEventListener('click', toggleReady)
+
 
 
 
@@ -213,7 +218,8 @@ const highlightMovableCells = (target) => {
                     for (let i = r + 1; i < arr.length; i++) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) {
+                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('zone')) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
@@ -245,7 +251,8 @@ const highlightMovableCells = (target) => {
                     for (let i = r - 1; i >= 0; i--) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) {
+                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('zone')) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
@@ -276,7 +283,8 @@ const highlightMovableCells = (target) => {
                     for (let i = c + 1; i < arr.length; i++) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) {
+                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('zone')) {
                             console.log(target);
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
@@ -308,7 +316,8 @@ const highlightMovableCells = (target) => {
                     for (let i = c - 1; i >= 0; i--) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')) {
+                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('zone')) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
