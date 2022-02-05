@@ -1,19 +1,31 @@
 const playerOneBtn = document.querySelector('.player-one-ready')
 const playerTwoBtn = document.querySelector('.player-two-ready')
-const overlay = document.querySelectorAll('.overlay')
+const menu = document.querySelector('.overlay')
 const overlayResults = document.querySelector('.overlay-results')
 const playerOneResults = document.querySelector('.player-one-results')
 const playerTwoResults = document.querySelector('.player-two-results')
 const layoutBtns = document.querySelectorAll('.layout-btn')
+const titleSplash = document.querySelector('.title-splash')
 
-overlayResults.style.opacity = 0
-overlayResults.classList.toggle('hidden')
-overlayResults.addEventListener('click', function(){
+titleSplash.addEventListener('click', function () {
+    let element = document.querySelector('.title-screen')
+    element.classList.toggle('animate-pulse')
+    let fadeDur = 100
+    let timer = setInterval(() => {
+        fadeDur--
+        if (fadeDur < 0) {
+            clearInterval(timer)
+            element.classList.add('hidden')
+            showMenu()
+        }
+        element.style.opacity = fadeDur / 100
+    }, 1);
+})
+
+overlayResults.addEventListener('click', function () {
     location.reload()
 })
 let opac = .8
-// overlay[0].style.opacity = opac
-overlay[1].style.opacity = opac
 
 boardEL.addEventListener('click', (e) => {
     let target = e.target
@@ -32,61 +44,162 @@ boardEL.addEventListener('click', (e) => {
 
 })
 
+const showMenu = () => {
+    let element = document.querySelector('.overlay')
+    element.style.opacity = 0
+    element.classList.toggle('hidden')
+    let fadeDur = 0
+    let timer = setInterval(() => {
+        fadeDur++
+        if (fadeDur > 100) {
+            clearInterval(timer)
+        }
+        element.style.opacity = `${fadeDur / 100}`
+    }, 1);
+}
+
 const toggleReady = (e) => {
     let element = e.target
     if (element.classList.contains('player-one-ready')) {
         isPlayerOneReady = !isPlayerOneReady
+        if (isPlayerOneReady) {
+            playerOneBtn.textContent = 'Ready!'
+            playerOneBtn.classList.toggle('bg-neutral-100')
+            playerOneBtn.classList.toggle('bg-blue-500')
+            playerOneBtn.classList.toggle('text-neutral-900')
+        } else {
+            playerOneBtn.textContent = 'Ready?'
+            playerOneBtn.classList.toggle('bg-blue-500')
+            playerOneBtn.classList.toggle('bg-neutral-100')
+            playerOneBtn.classList.toggle('text-neutral-900')
+        }
     } else if (element.classList.contains('player-two-ready')) {
         isPlayerTwoReady = !isPlayerTwoReady
+        if (isPlayerTwoReady) {
+            playerTwoBtn.textContent = 'Ready!'
+            playerTwoBtn.classList.toggle('bg-neutral-100')
+            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle('text-neutral-900')
+        } else {
+            playerTwoBtn.textContent = 'Ready?'
+            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle('bg-neutral-100')
+            playerTwoBtn.classList.toggle('text-neutral-900')
+        }
     } else {
         console.log('btn error');
     }
 
-    element.classList.toggle('bg-emerald-500')
-    element.classList.toggle('bg-stone-100')
-    element.classList.toggle('text-stone-900')
-    element.classList.toggle('animate-pulse')
-    if(isPlayerOneReady){
-        playerOneBtn.textContent = 'Ready!'
-    } else {playerOneBtn.textContent = 'Ready?'}
-    if(isPlayerTwoReady){
-        playerTwoBtn.textContent = 'Ready!'
-    } else {playerTwoBtn.textContent = 'Ready?'}
+
 
     if (isPlayerOneReady && isPlayerTwoReady) {
 
-// instantiate board layout
-spawnLayout(layout)
+        // instantiate board layout
+        spawnLayout(layout)
 
         playerOneBtn.removeEventListener('click', toggleReady)
-        playerTwoBtn.removeEventListener('click', toggleReady)
-        playerOneBtn.classList.toggle('opacity-10')
-        playerTwoBtn.classList.toggle('opacity-10')
+        // playerOneBtn.classList.toggle('opacity-10')
 
-        overlay.forEach(element => {
-            element.classList.toggle('pointer-events-none')
+        playerTwoBtn.removeEventListener('click', toggleReady)
+        // playerTwoBtn.classList.toggle('opacity-10')
+
+        let t = setInterval(() => {
+            clearInterval(t)
+            menu.classList.toggle('pointer-events-none')
             let fadeDur = opac * 100
             let timer = setInterval(() => {
                 fadeDur--
-                if(fadeDur < 0){
+                if (fadeDur < 0) {
                     clearInterval(timer)
-                    element.classList.toggle('hidden')
+                    menu.classList.toggle('hidden')
+                    showLoader()
                 }
-                element.style.opacity = `${fadeDur/100}`
+                menu.style.opacity = `${fadeDur / 100}`
             }, 1);
-            
-        });
+        }, 500);
+
     }
 
 
 }
 
+const showLoader = () => {
+    let element = document.querySelector('.loader')
+    element.style.opacity = 0
+    element.classList.toggle('hidden')
+    let fadeDur = 0
+    let timer = setInterval(() => {
+        fadeDur++
+        if (fadeDur > 100) {
+            clearInterval(timer)
+            startLoading()
+        }
+        element.style.opacity = `${fadeDur / 100}`
+    }, 1);
 
+}
 
+const startLoading = () => {
+    let element = document.querySelector('.loader-bar')
+    let length = Math.floor((window.innerWidth / 6) * 4)
+    let fadeDur = 0
+    let timer = setInterval(() => {
+        fadeDur += 2
+        if (fadeDur > length) {
+            clearInterval(timer)
+            fadeOutLoader()
+        }
+        element.style.width = `${fadeDur}px`
+    }, 1);
+
+}
+
+const fadeOutLoader = () => {
+    let element = document.querySelector('.loader')
+    let fadeDur = 100
+    let timer = setInterval(() => {
+        fadeDur--
+        if (fadeDur < 0) {
+            clearInterval(timer)
+            element.classList.toggle('hidden')
+            startGame()
+        }
+        element.style.opacity = `${fadeDur / 100}`
+    }, 1);
+}
+
+const startGame = () => {
+    let element = document.querySelector('.game-active')
+    element.style.opacity = 0
+    element.classList.toggle('hidden')
+    let fadeDur = 0
+    let timer = setInterval(() => {
+        fadeDur++
+        if (fadeDur > 100) {
+            clearInterval(timer)
+            element.classList.toggle('pointer-events-none')
+            element.style.opacity = 1
+        }
+        element.style.opacity = `${fadeDur / 100}`
+    }, 1);
+}
+
+const fadeOutBoard = () => {
+    let el = document.querySelector('.game-active')
+    let fadeDur = 300
+    let incriment = fadeDur
+    let time = setInterval(() => {
+        incriment--
+        if (incriment < 60) {
+            clearInterval(time)
+        }
+        el.style.opacity = `${incriment / fadeDur}`
+    }, 1);
+}
 
 
 const ifSelctedMoveTo = (target) => {
-    if (target.classList.contains(cellColor)) {return }
+    if (target.classList.contains(cellColor)) { return }
     else {
         const getDirection = (target) => {
 
@@ -160,10 +273,12 @@ const ifSelctedMoveTo = (target) => {
                     if (rowCol[toINT].children[0].classList.contains('white-star')) {
                         rowCol[toINT].innerHTML = `${blackCarrier}\n${barrier}`
                         rowCol[toINT].children[1].classList.toggle('white-barrier')
+                        toggleFlagStatus('.white-away')
 
                     } else if (rowCol[toINT].children[0].classList.contains('black-star')) {
                         rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
                         rowCol[toINT].children[1].classList.toggle('black-barrier')
+                        toggleFlagStatus('.black-away')
                     } else { console.log('error'); }
                 } else {
                     rowCol[toINT].innerHTML = p
@@ -171,9 +286,16 @@ const ifSelctedMoveTo = (target) => {
                 bodyEL.classList.toggle('pointer-events-none')
                 from.classList.toggle('selected')
                 board.resetSelectables()
-                if(target.classList.contains(winColor)){
+                if (target.classList.contains(winColor)) {
                     whoWon(rowCol[toINT])
-                    fadeInResults()
+                    fadeOutBoard()
+
+                    let ti = setInterval(() => {
+                        clearInterval(ti)
+                        fadeInResults()
+                        
+                    }, 500);
+
                     return
                 }
                 nextTurn()
@@ -218,7 +340,7 @@ const highlightMovableCells = (target) => {
                     for (let i = r + 1; i < arr.length; i++) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('wall')) { return }
                         else if (element.classList.contains('zone')) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
@@ -251,7 +373,7 @@ const highlightMovableCells = (target) => {
                     for (let i = r - 1; i >= 0; i--) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('wall')) { return }
                         else if (element.classList.contains('zone')) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
@@ -283,7 +405,7 @@ const highlightMovableCells = (target) => {
                     for (let i = c + 1; i < arr.length; i++) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('wall')) { return }
                         else if (element.classList.contains('zone')) {
                             console.log(target);
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
@@ -316,7 +438,7 @@ const highlightMovableCells = (target) => {
                     for (let i = c - 1; i >= 0; i--) {
                         const element = arr[i];
                         if (!element) { return }
-                        else if (element.classList.contains('wall')){return}
+                        else if (element.classList.contains('wall')) { return }
                         else if (element.classList.contains('zone')) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)

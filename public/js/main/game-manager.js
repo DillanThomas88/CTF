@@ -5,12 +5,13 @@ const cellColor = 'bg-neutral-400'
 const winColor = 'bg-yellow-400'
 
 const wall = 'fill-neutral-800'
-const black = 'fill-stone-800'
-const white = 'fill-stone-100'
+const black = 'fill-neutral-800'
+const white = 'fill-white'
 const opacity = 'opacity-20'
 
 const winQuote = 'You Won'
 const loseQuote = 'You Lost'
+const flagAway = 'Your flag is away!'
 
 let isWhitesTurn = true
 let bBarrier
@@ -21,8 +22,8 @@ let whiteStarData
 let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
-const notReadyColor = 'bg-emerald-500'
-const readyColor = 'bg-neutral-100'
+const notSlected = 'bg-neutral-800'
+const selected = 'bg-neutral-100'
 
 const nextTurn = () => {
     isWhitesTurn = !isWhitesTurn
@@ -60,21 +61,19 @@ const whoWon = (index) => {
 }
 
 const fadeInResults = () => {
+    // debugger
+    overlayResults.style.opacity = 0
+    document.querySelector('.replay').innerHTML = replay
     overlayResults.classList.toggle('hidden')
-    overlay[1].classList.toggle('hidden')
-    let duration = 200
+    let duration = 500
     let incriment = 0
     let timer = setInterval(() => {
         incriment++
         if(incriment > duration){
             clearInterval(timer)
-
+            overlayResults.classList.toggle('pointer-events-none')
         }
         overlayResults.style.opacity = incriment/duration
-        if(incriment <= duration * .8){
-
-            overlay[1].style.opacity = incriment/duration
-        }
     }, 1);
 }
 
@@ -82,17 +81,28 @@ const findActiveBtnsAndReset = () => {
     layoutBtns.forEach(element => {
         if(element.classList.contains('active')){ 
             element.classList.toggle('active')
-            element.classList.toggle(readyColor)
-            element.classList.toggle(notReadyColor)
+            element.classList.toggle(selected)
+            element.classList.toggle(notSlected)
             element.classList.toggle('text-neutral-800')
         }
     })
 }
+
 const toggleLayouts = (e) => {
     findActiveBtnsAndReset()
     let element = e.target
     element.classList.toggle('active')
-    element.classList.toggle(notReadyColor)
-    element.classList.toggle(readyColor)
+    element.classList.toggle(notSlected)
+    element.classList.toggle(selected)
     element.classList.toggle('text-neutral-800')
+}
+
+const toggleFlagStatus = (x) => {
+    let away = document.querySelector(x)
+    away.innerHTML = flagAway
+    away.classList.toggle('text-blue-100')
+    away.classList.toggle('text-amber-100')
+    away.classList.toggle('animate-pulse')
+    away.parentElement.classList.toggle('border-blue-500')
+    away.parentElement.classList.toggle('border-amber-500')
 }
