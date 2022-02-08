@@ -1,5 +1,9 @@
 module.exports = {
   content: ["./index.html", 
+  "./public/js/config/*.js", 
+  "./public/js/events/*.js", 
+  "./public/js/main/*.js", 
+  "./public/js/svg/*.js", 
   "./public/js/*.js", 
 ],
   theme: {

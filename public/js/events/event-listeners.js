@@ -5,9 +5,12 @@ const overlayResults = document.querySelector('.overlay-results')
 const playerOneResults = document.querySelector('.player-one-results')
 const playerTwoResults = document.querySelector('.player-two-results')
 const layoutBtns = document.querySelectorAll('.layout-btn')
-const titleSplash = document.querySelector('.title-splash')
 
-titleSplash.addEventListener('click', function () {
+bodyEL.addEventListener('click', fadeoutTitleScreen)
+
+
+function fadeoutTitleScreen() {
+    bodyEL.removeEventListener('click', fadeoutTitleScreen)
     let element = document.querySelector('.title-screen')
     element.classList.toggle('animate-pulse')
     let fadeDur = 100
@@ -19,8 +22,9 @@ titleSplash.addEventListener('click', function () {
             showMenu()
         }
         element.style.opacity = fadeDur / 100
-    }, 1);
-})
+    }, 1)
+}
+
 
 overlayResults.addEventListener('click', function () {
     location.reload()
@@ -29,8 +33,10 @@ let opac = .8
 
 boardEL.addEventListener('click', (e) => {
     let target = e.target
+
     // board.info(target)
     if (target.classList.contains('selected')) {
+
         board.resetSelectables()
         target.classList.toggle('selected')
         board.resetColors()
@@ -186,11 +192,11 @@ const startGame = () => {
 
 const fadeOutBoard = () => {
     let el = document.querySelector('.game-active')
-    let fadeDur = 300
+    let fadeDur = 500
     let incriment = fadeDur
     let time = setInterval(() => {
         incriment--
-        if (incriment < 60) {
+        if (incriment < 250) {
             clearInterval(time)
         }
         el.style.opacity = `${incriment / fadeDur}`
@@ -219,10 +225,11 @@ const ifSelctedMoveTo = (target) => {
         let fromINT;
         let toINT
         let p;
-        if (from.children[0].classList.contains('black-marker')) { p = blackMarker }
-        if (from.children[0].classList.contains('white-marker')) { p = whiteMarker }
-        if (from.children[0].classList.contains('black-carrier')) { p = blackCarrier }
-        if (from.children[0].classList.contains('white-carrier')) { p = whiteCarrier }
+        let color = undefined
+        if (from.children[0].classList.contains('black-marker')) { p = blackMarker; color = 'black' }
+        if (from.children[0].classList.contains('white-marker')) { p = whiteMarker; color = 'white' }
+        if (from.children[0].classList.contains('black-carrier')) { p = blackCarrier; color = 'black' }
+        if (from.children[0].classList.contains('white-carrier')) { p = whiteCarrier; color = 'white' }
 
         if (getRowOrCol(direction) === 'col') {
             fromINT = from.getAttribute('row')
@@ -234,7 +241,12 @@ const ifSelctedMoveTo = (target) => {
             fromINT = from.getAttribute('col')
             toINT = target.getAttribute('col')
             spaces = Math.abs(fromINT - toINT)
-        } else { console.log('error'); }
+        } else {
+            console.log('error');
+            target.classList.toggle('selected')
+            board.resetColors()
+            return
+        }
 
 
         board.resetColors()
@@ -279,6 +291,10 @@ const ifSelctedMoveTo = (target) => {
                         rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
                         rowCol[toINT].children[1].classList.toggle('black-barrier')
                         toggleFlagStatus('.black-away')
+                    } else if (rowCol[toINT].classList.contains('white-score')) {
+                        rowCol[toINT].innerHTML = `${blackCarrier}\n${barrier}`
+                    } else if (rowCol[toINT].classList.contains('black-score')) {
+                        rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
                     } else { console.log('error'); }
                 } else {
                     rowCol[toINT].innerHTML = p
@@ -289,16 +305,16 @@ const ifSelctedMoveTo = (target) => {
                 if (target.classList.contains(winColor)) {
                     whoWon(rowCol[toINT])
                     fadeOutBoard()
+                    fadeInResults()
 
-                    let ti = setInterval(() => {
-                        clearInterval(ti)
-                        fadeInResults()
-                        
-                    }, 500);
+                    // let ti = setInterval(() => {
+                    //     clearInterval(ti)
+
+                    // }, 100);
 
                     return
                 }
-                nextTurn()
+                board.checkForFlags(target, color)
                 return
             }
         }, 5);
@@ -352,13 +368,15 @@ const highlightMovableCells = (target) => {
                         else {
 
                             if (element.children[0]) {
-                                if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if (isTheSame(element, target)) { return }
-                                    element.classList.toggle(cellColor)
-                                    element.classList.toggle(selectableColor);
-                                    element.classList.toggle(key);
+                                if (element.children[0].classList.contains('piece')) {
+                                    return
                                 }
-                                return
+                                else if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
+                                    if (isTheSame(element, target)) { return }
+                                }
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(selectableColor);
+                                element.classList.toggle(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
@@ -384,13 +402,15 @@ const highlightMovableCells = (target) => {
                         }
                         else {
                             if (element.children[0]) {
-                                if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if (isTheSame(element, target)) { return }
-                                    element.classList.toggle(cellColor)
-                                    element.classList.toggle(selectableColor);
-                                    element.classList.toggle(key);
+                                if (element.children[0].classList.contains('piece')) {
+                                    return
                                 }
-                                return
+                                else if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
+                                    if (isTheSame(element, target)) { return }
+                                }
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(selectableColor);
+                                element.classList.toggle(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
@@ -407,7 +427,7 @@ const highlightMovableCells = (target) => {
                         if (!element) { return }
                         else if (element.classList.contains('wall')) { return }
                         else if (element.classList.contains('zone')) {
-                            console.log(target);
+                            // console.log(target);
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
@@ -417,13 +437,15 @@ const highlightMovableCells = (target) => {
                         }
                         else {
                             if (element.children[0]) {
-                                if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if (isTheSame(element, target)) { return }
-                                    element.classList.toggle(cellColor)
-                                    element.classList.toggle(selectableColor);
-                                    element.classList.toggle(key);
+                                if (element.children[0].classList.contains('piece')) {
+                                    return
                                 }
-                                return
+                                else if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
+                                    if (isTheSame(element, target)) { return }
+                                }
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(selectableColor);
+                                element.classList.toggle(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
@@ -449,13 +471,15 @@ const highlightMovableCells = (target) => {
                         }
                         else {
                             if (element.children[0]) {
-                                if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
-                                    if (isTheSame(element, target)) { return }
-                                    element.classList.toggle(cellColor)
-                                    element.classList.toggle(selectableColor);
-                                    element.classList.toggle(key);
+                                if (element.children[0].classList.contains('piece')) {
+                                    return
                                 }
-                                return
+                                else if (element.children[0].classList.contains('black-star') || element.children[0].classList.contains('white-star')) {
+                                    if (isTheSame(element, target)) { return }
+                                }
+                                element.classList.toggle(cellColor)
+                                element.classList.toggle(selectableColor);
+                                element.classList.toggle(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
@@ -474,7 +498,7 @@ const highlightMovableCells = (target) => {
                     if (target.children[0].classList.contains('white')) { pieceColor = 'white' }
                     if (element.children[0].classList.contains('black')) { targetColor = 'black' }
                     if (element.children[0].classList.contains('white')) { targetColor = 'white' }
-                    console.log(pieceColor, targetColor);
+                    // console.log(pieceColor, targetColor);
                     if (pieceColor === targetColor) { return true }
                     else { return false }
                 }

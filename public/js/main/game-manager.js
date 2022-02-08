@@ -11,7 +11,8 @@ const opacity = 'opacity-20'
 
 const winQuote = 'You Won'
 const loseQuote = 'You Lost'
-const flagAway = 'Your flag is away!'
+const flagAway = 'Your flag is taken!'
+const flagHome = 'Your flag is home'
 
 let isWhitesTurn = true
 let bBarrier
@@ -22,7 +23,7 @@ let whiteStarData
 let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
-const notSlected = 'bg-neutral-800'
+const notSlected = 'bg-neutral-900'
 const selected = 'bg-neutral-100'
 
 const nextTurn = () => {
@@ -51,21 +52,21 @@ const nextTurn = () => {
 }
 
 const whoWon = (index) => {
-    if(index.children[0].classList.contains('white')){
-        playerOneResults.innerHTML = winQuote
-        playerTwoResults.innerHTML = loseQuote
-    } else {
-        playerOneResults.innerHTML = loseQuote
-        playerTwoResults.innerHTML = winQuote
-    }
+    // if(index.children[0].classList.contains('white')){
+    //     playerOneResults.innerHTML = winQuote
+    //     playerTwoResults.innerHTML = loseQuote
+    // } else {
+    //     playerOneResults.innerHTML = loseQuote
+    //     playerTwoResults.innerHTML = winQuote
+    // }
 }
 
 const fadeInResults = () => {
     // debugger
     overlayResults.style.opacity = 0
-    document.querySelector('.replay').innerHTML = replay
+    // document.querySelector('.replay').innerHTML = replay
     overlayResults.classList.toggle('hidden')
-    let duration = 500
+    let duration = 100
     let incriment = 0
     let timer = setInterval(() => {
         incriment++
@@ -89,6 +90,7 @@ const findActiveBtnsAndReset = () => {
 }
 
 const toggleLayouts = (e) => {
+    
     findActiveBtnsAndReset()
     let element = e.target
     element.classList.toggle('active')
@@ -99,10 +101,20 @@ const toggleLayouts = (e) => {
 
 const toggleFlagStatus = (x) => {
     let away = document.querySelector(x)
-    away.innerHTML = flagAway
-    away.classList.toggle('text-blue-100')
-    away.classList.toggle('text-amber-100')
+    if(away.innerHTML === flagAway){
+        away.innerHTML = flagHome
+        away.classList.toggle('text-amber-100')
+        away.classList.toggle('text-blue-100')
     away.classList.toggle('animate-pulse')
-    away.parentElement.classList.toggle('border-blue-500')
     away.parentElement.classList.toggle('border-amber-500')
+    away.parentElement.classList.toggle('border-blue-500')
+    } else {
+        away.innerHTML = flagAway
+        away.classList.toggle('text-blue-100')
+        away.classList.toggle('text-amber-100')
+        away.classList.toggle('animate-pulse')
+        away.parentElement.classList.toggle('border-blue-500')
+        away.parentElement.classList.toggle('border-amber-500')
+
+    }
 }

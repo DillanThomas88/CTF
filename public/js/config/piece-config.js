@@ -57,7 +57,7 @@ class Piece {
         let newArr = board.get('row', r)
         let newArr2 = board.get('row', r + 1)
         let newArr3 = board.get('row', r - 1)
-        let zone = [newArr[c + 1], newArr[c - 1], newArr2[c + 1], newArr2[c - 1], newArr2[c], newArr3[c + 1], newArr3[c - 1], newArr3[c]]
+        let zone = [newArr[c + 1], newArr[c - 1],newArr[c], newArr2[c + 1], newArr2[c - 1], newArr2[c], newArr3[c + 1], newArr3[c - 1], newArr3[c]]
         zone.forEach(element => {
             element.classList.toggle('zone')
         });

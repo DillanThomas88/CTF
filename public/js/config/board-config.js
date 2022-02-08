@@ -15,9 +15,9 @@ class Board {
                 const div = document.createElement('div')
                 div.setAttribute('row', i)
                 div.setAttribute('col', j)
-                div.setAttribute('data',data)
+                div.setAttribute('data', data)
                 data++
-                div.classList.add( 'cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', cellColor, 'border', 'flex','justify-center','items-center')
+                div.classList.add('cell', `h-14`, `w-14`, 'col-span-1', 'row-span-1', cellColor, 'border', 'flex', 'justify-center', 'items-center')
                 boardEL.append(div)
                 div.style.borderColor = '#0f0f0f'
             }
@@ -46,7 +46,7 @@ class Board {
             }
 
         }
-        
+
 
         reset('top')
         reset('bottom')
@@ -65,28 +65,87 @@ class Board {
 
     info = (target) => {
         let t
-        if(!target.children[0]){ return }
+        if (!target.children[0]) { return }
         else { t = target.children[0] }
         let deleted = document.querySelectorAll('.modal')
-        if(deleted.length > 0){
+        if (deleted.length > 0) {
             deleted.forEach(element => {
                 element.remove()
             });
             return
         }
 
-        if(t.classList.contains('white-star')){
+        if (t.classList.contains('white-star')) {
             let modal = document.createElement('div')
-            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','bottom-44','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-30',)
+            modal.classList.add('modal', 'absolute', 'bg-blue-100', 'whitespace-nowrap', 'h-10', 'bottom-44', 'pointer-events-none', 'text-xs', 'flex', 'p-2', 'justify-center', 'items-center', 'shadow-xl', 'shadow-neutral-800', 'text-blue-800', 'border-l-8', 'border-blue-400', 'rounded-sm', 'z-30',)
             modal.textContent = 'This is your Star, keep it safe!'
             target.append(modal)
         }
-        if(t.classList.contains('black-star')){
+        if (t.classList.contains('black-star')) {
             let modal = document.createElement('div')
-            modal.classList.add('modal','absolute','bg-blue-100','whitespace-nowrap','h-10','top-4','pointer-events-none','text-xs', 'flex', 'p-2','justify-center','items-center','shadow-xl','shadow-neutral-800','text-blue-800','border-l-8','border-blue-400','rounded-sm', 'z-30',)
+            modal.classList.add('modal', 'absolute', 'bg-blue-100', 'whitespace-nowrap', 'h-10', 'top-4', 'pointer-events-none', 'text-xs', 'flex', 'p-2', 'justify-center', 'items-center', 'shadow-xl', 'shadow-neutral-800', 'text-blue-800', 'border-l-8', 'border-blue-400', 'rounded-sm', 'z-30',)
             modal.textContent = 'Bring the enemy star to home base!'
             target.append(modal)
         }
+    }
+
+    checkForFlags = (target, color) => {
+        let c = undefined
+        if (color == undefined) { return }
+        else if (color == 'black') { c = 'white-carrier' }
+        else if (color == 'white') { c = 'black-carrier' }
+        else { return console.log('error') }
+
+        let arr = this.getNeighbors(target)
+        arr.forEach(element => {
+            if (!element) { }
+            else if (element.children[0]) {
+
+                if (element.children[0].classList.contains(c)) {
+                    let flagCarrierNeighbors = this.getNeighbors(element)
+                    let total = 0
+                    for (let i = 0; i < flagCarrierNeighbors.length; i++) {
+                        const e = flagCarrierNeighbors[i];
+                        if (e) {
+                            if (e.children[0]) {
+                                if (e.children[0].classList.contains(color)) {
+                                    total++
+                                }
+                            }
+
+                        }
+
+                    }
+                    console.log(`flag carrier has ${total} enemies nearby`);
+                    if (total >= 2) {
+                        console.log(`${c} has been killed`);
+                        if (c == 'black-carrier') {
+                            let whitehome = document.querySelector(`[data='${whiteStarData}']`)
+                            element.innerHTML = blackMarker
+                            whitehome.innerHTML = `${whiteStar}`
+                            toggleFlagStatus('.white-away')
+                        } else {
+                            let blackhome = document.querySelector(`[data='${blackStarData}']`)
+                            element.innerHTML = whiteMarker
+                            blackhome.innerHTML = `${blackStar}`
+                            toggleFlagStatus('.black-away')
+                        }
+                        element.children[0].classList.toggle('opacity-50')
+                    }
+                }
+            }
+        });
+        nextTurn()
+
+
+    }
+    getNeighbors = (target) => {
+        let rNum = parseInt(target.getAttribute('row'))
+        let cNum = parseInt(target.getAttribute('col'))
+        let row = this.get('row', rNum)
+        let col = this.get('col', cNum)
+        let arr = [row[cNum - 1], row[cNum + 1], col[rNum - 1], col[rNum + 1]]
+        return arr
     }
 
 }
