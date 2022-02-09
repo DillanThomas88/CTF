@@ -349,7 +349,7 @@ const highlightMovableCells = (target) => {
 
             // row selectables
             const getSelectables = (arr, key, target) => {
-                console.log(key);
+                // console.log(key);
                 if
                     (key === 'bottom') {
                     for (let i = r + 1; i < arr.length; i++) {
