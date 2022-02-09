@@ -82,7 +82,7 @@ class Piece {
                 this.setPiece(board.get('row', 9), whiteMarker, 4, 2)
 
                 this.setWall(board.get('row', 3), 4, 1)
-                this.setWall(board.get('row', 3), 4, 1)
+                this.setWall(board.get('row', 7), 8, 1)
 
                 this.setScoreZone()
                 break;
