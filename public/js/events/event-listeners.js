@@ -357,7 +357,7 @@ const highlightMovableCells = (target) => {
                         const element = arr[i];
                         if (!element) { return }
                         else if (element.classList.contains('wall')) { return }
-                        else if (element.classList.contains('zone')) {
+                        else if (element.classList.contains('zone') && !element.children[0]) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
@@ -392,7 +392,7 @@ const highlightMovableCells = (target) => {
                         const element = arr[i];
                         if (!element) { return }
                         else if (element.classList.contains('wall')) { return }
-                        else if (element.classList.contains('zone')) {
+                        else if (element.classList.contains('zone')  && !element.children[0]) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
@@ -426,7 +426,7 @@ const highlightMovableCells = (target) => {
                         const element = arr[i];
                         if (!element) { return }
                         else if (element.classList.contains('wall')) { return }
-                        else if (element.classList.contains('zone')) {
+                        else if (element.classList.contains('zone') && !element.children[0]) {
                             // console.log(target);
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
@@ -461,7 +461,7 @@ const highlightMovableCells = (target) => {
                         const element = arr[i];
                         if (!element) { return }
                         else if (element.classList.contains('wall')) { return }
-                        else if (element.classList.contains('zone')) {
+                        else if (element.classList.contains('zone') && !element.children[0]) {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
