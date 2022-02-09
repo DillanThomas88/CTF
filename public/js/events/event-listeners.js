@@ -33,7 +33,7 @@ let opac = .8
 
 boardEL.addEventListener('click', (e) => {
     let target = e.target
-
+    // board.checkSuffocation()
     // board.info(target)
     if (target.classList.contains('selected')) {
 
@@ -242,9 +242,8 @@ const ifSelctedMoveTo = (target) => {
             toINT = target.getAttribute('col')
             spaces = Math.abs(fromINT - toINT)
         } else {
-            console.log('error');
-            target.classList.toggle('selected')
-            board.resetColors()
+            // target.classList.toggle('selected')
+            // board.resetColors()
             return
         }
 
@@ -323,7 +322,6 @@ const ifSelctedMoveTo = (target) => {
 
 const highlightMovableCells = (target) => {
     let piece
-    let isCarrier = false
     if (isWhitesTurn) { piece = ['white-marker', 'white-carrier'] }
     else { piece = ['black-marker', 'black-carrier'] }
     if (!target.classList.contains('cell')) { return }
@@ -350,7 +348,8 @@ const highlightMovableCells = (target) => {
             let colArr = board.get('col', c)
 
             // row selectables
-            const getSelectables = (arr, key, target, isCarrier) => {
+            const getSelectables = (arr, key, target) => {
+                console.log(key);
                 if
                     (key === 'bottom') {
                     for (let i = r + 1; i < arr.length; i++) {
@@ -361,7 +360,7 @@ const highlightMovableCells = (target) => {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             return
                         }
@@ -376,12 +375,12 @@ const highlightMovableCells = (target) => {
                                 }
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                         }
                     }
@@ -396,7 +395,7 @@ const highlightMovableCells = (target) => {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             return
                         }
@@ -410,12 +409,12 @@ const highlightMovableCells = (target) => {
                                 }
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                         }
                     }
@@ -431,7 +430,7 @@ const highlightMovableCells = (target) => {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             return
                         }
@@ -445,12 +444,12 @@ const highlightMovableCells = (target) => {
                                 }
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                         }
                     }
@@ -465,7 +464,7 @@ const highlightMovableCells = (target) => {
                             if (target.children[0].classList.contains('white-carrier') || target.children[0].classList.contains('black-carrier')) {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(winColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             return
                         }
@@ -479,12 +478,12 @@ const highlightMovableCells = (target) => {
                                 }
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                             else {
                                 element.classList.toggle(cellColor)
                                 element.classList.toggle(selectableColor);
-                                element.classList.toggle(key);
+                                element.classList.add(key);
                             }
                         }
                     }
@@ -504,10 +503,10 @@ const highlightMovableCells = (target) => {
                 }
             }
 
-            getSelectables(rowArr, 'right', target, isCarrier)
-            getSelectables(rowArr, 'left', target, isCarrier)
-            getSelectables(colArr, 'top', target, isCarrier)
-            getSelectables(colArr, 'bottom', target, isCarrier)
+            getSelectables(rowArr, 'right', target)
+            getSelectables(rowArr, 'left', target)
+            getSelectables(colArr, 'top', target)
+            getSelectables(colArr, 'bottom', target)
         }
     }
 

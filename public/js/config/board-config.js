@@ -148,6 +148,44 @@ class Board {
         return arr
     }
 
+    checkSuffocation = () => {
+        // unfinished 
+        let wCarrier = document.querySelector('.white-carrier')
+        let bCarrier = document.querySelector('.black-carrier')
+
+        if(wCarrier){
+            let count = 0
+            let neighbors = this.getNeighbors(wCarrier.parentElement)
+            neighbors.forEach(element => {
+                if(!element || element.classList.contains('wall')){count++}
+                else if(element.children[0]){
+                    if(element.children[0].classList.contains('piece')){count++}
+                }
+
+                if(count === 4){
+                    let home = document.querySelector(`[data='${blackStarData}']`)
+                    wCarrier.innerHTML = whiteMarker
+                    wCarrier.children[0].classList.toggle('white-carrier')
+                    wCarrier.children[0].classList.toggle('white-marker')
+                    home.innerHTML = `${blackStar}`
+                    toggleFlagStatus('.black-away')
+                }
+            });
+        }
+        if(bCarrier){
+            let count = 0
+            let neighbors = this.getNeighbors(bCarrier.parentElement)
+            neighbors.forEach(element => {
+                if(!element || element.classList.contains('wall')){count++}
+                else if(element.children[0]){
+                    if(element.children[0].classList.contains('piece')){count++}
+                }
+
+                console.log(count, 'black-carrier');
+            });
+        }
+    }
+
 }
 
 

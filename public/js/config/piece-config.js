@@ -57,9 +57,11 @@ class Piece {
         let newArr = board.get('row', r)
         let newArr2 = board.get('row', r + 1)
         let newArr3 = board.get('row', r - 1)
-        let zone = [newArr[c + 1], newArr[c - 1],newArr[c], newArr2[c + 1], newArr2[c - 1], newArr2[c], newArr3[c + 1], newArr3[c - 1], newArr3[c]]
+        let zone = [newArr[c + 1], newArr[c - 1], newArr[c], newArr2[c + 1], newArr2[c - 1], newArr2[c], newArr3[c + 1], newArr3[c - 1], newArr3[c]]
         zone.forEach(element => {
-            element.classList.toggle('zone')
+            if(element){
+                element.classList.toggle('zone')
+            }
         });
     }
 
@@ -78,6 +80,9 @@ class Piece {
                 this.setPiece(board.get('col', 1), whiteMarker, 7, 2)
                 this.setPiece(board.get('row', 10), whiteMarker, 4, 2)
                 this.setPiece(board.get('row', 9), whiteMarker, 4, 2)
+
+                this.setWall(board.get('row', 3), 4, 1)
+                this.setWall(board.get('row', 3), 4, 1)
 
                 this.setScoreZone()
                 break;
@@ -139,7 +144,28 @@ class Piece {
 
                 this.setScoreZone()
                 break;
+            case 6:
+                this.setPiece(board.get('row', 3), blackStar, 0, 1, 'black-score')
+                this.setPiece(board.get('row', 5), blackMarker, 1, 1)
+                this.setPiece(board.get('row', 5), blackMarker, 3, 1)
+                this.setPiece(board.get('col', 2), blackMarker, 4, 1)
+                this.setPiece(board.get('row', 1), blackMarker, 1, 1)
+                this.setPiece(board.get('row', 1), blackMarker, 6, 1)
 
+                this.setPiece(board.get('row', 7), whiteStar, 10, 1, 'white-score')
+                this.setPiece(board.get('row', 5), whiteMarker, 9, 1)
+                this.setPiece(board.get('row', 5), whiteMarker, 11, 1)
+                this.setPiece(board.get('col', 8), whiteMarker, 8, 1)
+                this.setPiece(board.get('row', 9), whiteMarker, 11, 1)
+                this.setPiece(board.get('row', 9), whiteMarker, 6, 1)
+
+
+                this.setWall(board.get('col', 5), 5, 3)
+                this.setWall(board.get('row', 0), 10, 2)
+                this.setWall(board.get('row', 10), 1, 2)
+
+                this.setScoreZone()
+                break;
             default:
                 break;
         }
