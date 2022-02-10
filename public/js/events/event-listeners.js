@@ -76,11 +76,11 @@ const toggleReady = (e) => {
         if (isPlayerOneReady) {
             playerOneBtn.textContent = 'Ready!'
             playerOneBtn.classList.toggle('bg-neutral-900')
-            playerOneBtn.classList.toggle('bg-blue-500')
+            playerOneBtn.classList.toggle(selected)
             playerOneBtn.classList.toggle('text-neutral-900')
         } else {
             playerOneBtn.textContent = 'Ready?'
-            playerOneBtn.classList.toggle('bg-blue-500')
+            playerOneBtn.classList.toggle(selected)
             playerOneBtn.classList.toggle('bg-neutral-900')
             playerOneBtn.classList.toggle('text-neutral-900')
         }
@@ -89,11 +89,11 @@ const toggleReady = (e) => {
         if (isPlayerTwoReady) {
             playerTwoBtn.textContent = 'Ready!'
             playerTwoBtn.classList.toggle('bg-neutral-300')
-            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle(selected)
             playerTwoBtn.classList.toggle('text-neutral-900')
         } else {
             playerTwoBtn.textContent = 'Ready?'
-            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle(selected)
             playerTwoBtn.classList.toggle('bg-neutral-300')
             playerTwoBtn.classList.toggle('text-neutral-900')
         }

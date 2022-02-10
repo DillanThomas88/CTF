@@ -29,7 +29,7 @@ let playerColor;
 const selectableColor = 'bg-stone-300'
 const cellColor = 'bg-neutral-100'
 // const selectedPieceColor = 'bg-yellow-200'
-const winColor = 'bg-yellow-400'
+const winColor = 'bg-stone-400'
 const updateColor = 'orange'
 
 const wall = 'fill-neutral-800'
@@ -51,7 +51,7 @@ let whiteStarData
 let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
-const notSlected = 'bg-neutral-900'
+const notSlected = 'bg-neutral-100'
 const selected = 'bg-blue-500'
 
 const nextTurn = () => {

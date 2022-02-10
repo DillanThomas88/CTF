@@ -9,10 +9,10 @@
     <title>capture the flag</title>
 </head>
 
-<body style="background-color: #0f0f0f;"
+<body style="background-color: #2f2c2c;"
     class="overflow-y-none relative select-none uppercase font-bold w-screen text-stone-100  grid content-center justify-center">
     <div style=" transform: translateY(-25em);"
-        class="z-10 fixed background-player2 rotate-180 bg-stone-100  w-screen"></div>
+        class="z-10 fixed background-player2 rotate-180 bg-neutral-900  w-screen"></div>
 
     <!-- title screen -->
     <div class=" relative  title-screen pointer-events-none grid content-center justify-center pb-10">
@@ -38,18 +38,18 @@
 
         <!-- player two ready button -->
         <button
-            class="player-two-ready bg-neutral-300 text-neutral-900 text-2xl uppercase font-medium px-4 py-2 rounded-md rotate-180">
+            class="player-two-ready bg-neutral-300 text-neutral-900 text-2xl uppercase font-normal px-4 py-2 rounded-md rotate-180">
             Ready?
         </button>
         <p
-            class="rotate-180 text-lg my-10 w-full py-1 text-center text-neutral-900 bg-neutral-300 rounded-lg font-normal">
+            class="rotate-180 text-lg my-10 w-full py-1 text-center text-neutral-100  font-normal">
             select a map</p>
 
         <!-- <hr class="z-50 absolute outline-none bg-stone-100 w-full"> -->
         <!-- layouts -->
         <section class="selection-container grid content-center grid-rows-2 grid-cols-3 gap-y-12 gap-x-10 ">
             <button layout="1"
-                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-100 text-neutral-800   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Crossover</div>
                 <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <img src="./public/images/game-1.png" alt="">
@@ -57,7 +57,7 @@
                 <div class="pointer-events-none flex justify-center py-1">Crossover</div>
             </button>
             <button layout="2"
-                class="layout-btn  grid justify-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-2 rounded-lg">
+                class="layout-btn  grid justify-center text-sm font-medium uppercase bg-neutral-100 text-neutral-800   px-2 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Parallel</div>
                 <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <!-- new row -->
@@ -66,7 +66,7 @@
                 <div class="pointer-events-none flex justify-center py-1">Parallel</div>
             </button>
             <button layout="3"
-                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-100 text-neutral-800   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Duality</div>
                 <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <!-- new row -->
@@ -75,7 +75,7 @@
                 <div class="pointer-events-none flex justify-center py-1">Duality</div>
             </button>
             <button layout="4"
-                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-100 text-neutral-800   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Squid</div>
                 <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <!-- new row -->
@@ -84,7 +84,7 @@
                 <div class="pointer-events-none flex justify-center py-1">Squid</div>
             </button>
             <button layout="0"
-                class="opacity-30  grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                class="opacity-30  grid justify-center text-center text-sm font-medium uppercase bg-neutral-100 text-neutral-800   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">coming soon</div>
                 <div
                     class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-2 rounded-sm mx-2">
@@ -224,7 +224,7 @@
                 <div class="pointer-events-none flex justify-center py-1">coming soon</div>
             </button>
             <button layout="6"
-                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
+                class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-100 text-neutral-800   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Pacifist</div>
                 <div class="pointer-events-none w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <img src="./public/images/game-6.png" alt="">
@@ -234,10 +234,10 @@
         </section>
 
         <!-- player one ready button -->
-        <p class="text-lg my-10 w-full py-1 text-center  bg-neutral-900 rounded-lg text-neutral-100 font-normal">select
+        <p class="text-lg my-10 w-full py-1 text-center  text-neutral-100 font-normal">select
             a map</p>
         <button
-            class="player-one-ready bg-neutral-900 text-neutral-100 text-2xl uppercase font-medium px-4 py-2 rounded-md">
+            class="player-one-ready bg-neutral-300 text-neutral-900 text-2xl uppercase font-normal px-4 py-2 rounded-md">
             Ready?
         </button>
     </div>
@@ -268,12 +268,12 @@
 
     <div class="z-40 hidden game-active pointer-events-none grid content-center justify-center">
         <!-- player two -->
-        <section class="flex w-full rotate-180">
-            <div class="w-full justify-center -ml-7 text-black  text-2xl">
+        <section class="flex w-full rotate-180 font-normal">
+            <div class="w-full justify-center -ml-7 text-white  text-2xl">
                 <div class="flex flex-row pb-2">
-                    <div class="pr-6">capture the flag</div>
+                    <div class="pr-6 opacity-50">capture the flag</div>
                     <div
-                        class="text-xl normal-case italic font-medium  border-l-4 border-black flex -mr-7">
+                        class="text-xl normal-case italic font-medium  border-l-4 border-white flex -mr-7">
                         <div class="relative black-away w-full  pl-6">
                             <p>Your flag is home</p>
                             <div style="opacity: 0;" class="black-flash absolute w-full h-full bg-stone-100 top-0 left-0 w-96 rounded-r-sm"></div>
@@ -283,7 +283,7 @@
                 </div>
                 <!-- <hr style="height: 1px;" class="  opacity-30 my-1"> -->
                 <div class="normal-case">
-                    <div class="text-sm">Seek out your opponents flag and bring it home.
+                    <div class="text-sm opacity-50">Seek out your opponents flag and bring it home.
                     </div>
                 </div>
             </div>
@@ -293,10 +293,10 @@
             <!-- board pieces -->
         </section>
         <!-- player one -->
-        <section class="flex w-full">
+        <section class="flex w-full font-normal">
             <div class="w-full justify-center -ml-7  text-2xl">
                 <div class="flex flex-row pb-2">
-                    <div class="pr-6">capture the flag</div>
+                    <div class="pr-6 opacity-50">capture the flag</div>
                     <div
                         class=" text-xl normal-case italic font-medium  border-l-4 border-white flex -mr-7">
                         <div class="relative white-away text-white w-full  pl-6">
@@ -308,7 +308,7 @@
                 </div>
                 <!-- <hr style="height: 1px;" class="  opacity-30 my-1"> -->
                 <div class="normal-case">
-                    <div class="text-sm">Seek out your opponents flag and bring it home.
+                    <div class="text-sm opacity-50">Seek out your opponents flag and bring it home.
                     </div>
                 </div>
             </div>
