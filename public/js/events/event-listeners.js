@@ -7,7 +7,6 @@ function fadeoutTitleScreen() {
     bodyEL.removeEventListener('click', fadeoutTitleScreen)
     let element = document.querySelector('.title-screen')
     element.classList.toggle('animate-pulse')
-    let em = 100
     let fadeDur = 100
     let timer = setInterval(() => {
         fadeDur--
@@ -19,6 +18,8 @@ function fadeoutTitleScreen() {
         
         element.style.opacity = fadeDur / 100
     }, 1)
+    
+    let em = 100
     let t = setInterval(() => {
         em--
         if(em <= 0){
