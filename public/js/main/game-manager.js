@@ -63,8 +63,8 @@ const whoWon = (index) => {
 
 const fadeInResults = () => {
     // debugger
-    playerOneOpen.innerHTML = collapse
-    playerTwoOpen.innerHTML = collapse
+    playerOneOpen.innerHTML = open
+    playerTwoOpen.innerHTML = open
     playerOneOpen.classList.add('open')
     playerTwoOpen.classList.add('open')
     playerOneOpen.addEventListener('click', togglePlayerModals)

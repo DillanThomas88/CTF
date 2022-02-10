@@ -7,6 +7,7 @@ const playerTwoResults = document.querySelector('.player-two-results')
 const layoutBtns = document.querySelectorAll('.layout-btn')
 const playerOneOpen = document.querySelector('.player-one-open')
 const playerTwoOpen = document.querySelector('.player-two-open')
+const backgroundEL = document.querySelector('.background-player2')
 
 bodyEL.addEventListener('click', fadeoutTitleScreen)
 
@@ -15,6 +16,7 @@ function fadeoutTitleScreen() {
     bodyEL.removeEventListener('click', fadeoutTitleScreen)
     let element = document.querySelector('.title-screen')
     element.classList.toggle('animate-pulse')
+    let em = 120
     let fadeDur = 100
     let timer = setInterval(() => {
         fadeDur--
@@ -23,8 +25,17 @@ function fadeoutTitleScreen() {
             element.classList.add('hidden')
             showMenu()
         }
+        
         element.style.opacity = fadeDur / 100
     }, 1)
+    let t = setInterval(() => {
+        em--
+        if(em <= 0){
+            backgroundEL.style.transform = 'translateY(0em)'
+            clearInterval(t)
+        }
+        backgroundEL.style.transform = `translateY(${(em /10) * -1}em)`
+    }, 1);
 }
 
 
@@ -149,10 +160,10 @@ const showLoader = () => {
 
 const startLoading = () => {
     let element = document.querySelector('.loader-bar')
-    let length = Math.floor((window.innerWidth / 6) * 4)
+    let length = Math.floor(window.innerWidth)
     let fadeDur = 0
     let timer = setInterval(() => {
-        fadeDur += 2
+        fadeDur += 5
         if (fadeDur > length) {
             clearInterval(timer)
             fadeOutLoader()
@@ -210,30 +221,48 @@ const togglePlayerModals = (e) => {
     // console.log(el);
     let parent = el.parentElement.parentElement.parentElement
     if(el.classList.contains('open')){
-        let em = 250
+        let em = 200
         let t = setInterval(() => {
-            em -= 4
-            if(em <= 40){ 
+            em -= 5
+            if(em <= 10){ 
                 clearInterval(t)
-                parent.style.height = `4em`
+                if(parent.classList.contains('player-two-modal')){
+                    parent.style.transform = `translateY(-1em) scale(-1)`
+
+                } else {
+                    parent.style.transform = `translateY(1em)`
+                }
                 return
             }
-            parent.style.height = `${em/10}em`
-        }, 1);
-        el.innerHTML = open
-        el.classList.toggle('open')
-    } else {
-        let em = 40
-        let t = setInterval(() => {
-            em += 4
-            if(em >= 250){ 
-                clearInterval(t)
-                parent.style.height = `25em`
-                return
+            if(parent.classList.contains('player-two-modal')){
+                parent.style.transform = `translateY(${(em/10)* -1}em) scale(-1)`
+            } else {
+                parent.style.transform = `translateY(${em/10}em)`
             }
-            parent.style.height = `${em/10}em`
         }, 1);
         el.innerHTML = collapse
+        el.classList.toggle('open')
+    } else {
+        let em = 10
+        let t = setInterval(() => {
+            em += 5
+            if(em >= 200){ 
+                clearInterval(t)
+                if(parent.classList.contains('player-two-modal')){
+                    parent.style.transform = `translateY(-20em) scale(-1)`
+
+                } else {
+                    parent.style.transform = `translateY(20em)`
+                }
+                return
+            }
+            if(parent.classList.contains('player-two-modal')){
+                parent.style.transform = `translateY(${(em/10)* -1}em)`
+            } else {
+                parent.style.transform = `translateY(${em/10}em)`
+            }
+        }, 1);
+        el.innerHTML = open
         el.classList.toggle('open')
     }
 
