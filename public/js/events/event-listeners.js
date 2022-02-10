@@ -209,7 +209,7 @@ const fadeOutBoard = () => {
     let incriment = fadeDur
     let time = setInterval(() => {
         incriment--
-        if (incriment < 250) {
+        if (incriment < 450) {
             clearInterval(time)
         }
         el.style.opacity = `${incriment / fadeDur}`

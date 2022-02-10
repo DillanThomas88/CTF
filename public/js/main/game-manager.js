@@ -1,3 +1,7 @@
+const bodyEL = document.querySelector('body')
+let w = window.innerHeight
+console.log(w);
+bodyEL.style.height = `${w}px`
 const size = 11
 const cellSize = 14
 const selectableColor = 'bg-neutral-300'

@@ -1,5 +1,5 @@
 const boardContainer = document.querySelector('.board')
-const bodyEL = document.querySelector('body')
+
 
 const boardEL = document.createElement('div')
 
