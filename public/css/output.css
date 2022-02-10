@@ -1039,6 +1039,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 9rem;
 }
 
+.py-40 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
