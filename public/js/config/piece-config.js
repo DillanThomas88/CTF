@@ -106,15 +106,19 @@ class Piece {
                 break;
             case 3:
                 this.setPiece(board.get('row', 2), blackStar, 9, 1, 'black-score')
-                this.setPiece(board.get('col', 0), blackMarker, 1, 5)
+                this.setPiece(board.get('col', 2), blackMarker, 1, 3)
+                this.setPiece(board.get('col', 8), blackMarker, 5, 1)
 
 
                 this.setPiece(board.get('row', 8), whiteStar, 1, 1, 'white-score')
-                this.setPiece(board.get('col', 10), whiteMarker, 7, 5)
+                this.setPiece(board.get('col', 8), whiteMarker, 8, 3)
+                this.setPiece(board.get('col', 2), whiteMarker, 7, 1)
 
 
-                this.setWall(board.get('row', 5), 1, 2)
-                this.setWall(board.get('row', 5), 10, 2)
+                this.setWall(board.get('col', 0), 1, 5)
+                this.setWall(board.get('col', 1), 1, 5)
+                this.setWall(board.get('col', 9), 7, 5)
+                this.setWall(board.get('col', 10), 7, 5)
 
 
 

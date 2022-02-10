@@ -214,11 +214,11 @@ const togglePlayerModals = (e) => {
     if(el.classList.contains('open')){
         let em = 200
         let t = setInterval(() => {
-            em -= 5
-            if(em <= 10){ 
+            em -= 3
+            if(em <= 8){ 
                 clearInterval(t)
                 if(parent.classList.contains('player-two-modal')){
-                    parent.style.transform = `translateY(-1em) scale(-1)`
+                    parent.style.transform = `translateY(-.8em) scale(-1)`
 
                 } else {
                     parent.style.transform = `translateY(1em)`
