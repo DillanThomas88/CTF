@@ -11,17 +11,17 @@
 
 <body style="background-color: #0f0f0f;"
     class="overflow-y-none relative select-none uppercase font-bold w-screen text-stone-100  grid content-center justify-center">
-    <div style="height: 50vh; transform: translateY(-12em);" class="fixed background-player2 top-0 rotate-180 bg-red-500 h-full w-screen"></div>
+    <div style="height: 50vh; transform: translateY(-25em);" class="z-10 fixed background-player2 rotate-180 bg-purple-500  w-screen"></div>
 
     <!-- title screen -->
     <div class=" relative  title-screen pointer-events-none grid content-center justify-center pb-10">
-        <div class=" title-splash z-10 pl-20 pointer-events-auto">
+        <div class=" title-splash z-0 pl-20 pointer-events-auto">
             <!-- flag svg -->
         </div>
         <p class=" text-4xl text-neutral-800 flex justify-center w-screen ">
             <span class="text-white font-medium">CTF</span>
             <span class="font-thin text-neutral-500">Version 1.0</span>
-        <p class="flex justify-center py-10 animate-pulse text-red-500 text-4xl opacity-10">Touch Screen to start</p>
+        <p class="flex justify-center py-10 animate-pulse text-purple-500 text-4xl opacity-10">Touch Screen to start</p>
         <div class=" bottom-5 font-normal   w-full flex justify-center pb-20">
             <span class="text-neutral-500">© 2021-2022</span>
             <span class="text-neutral-400 font-bold">DT88</span>
@@ -33,7 +33,7 @@
     </div>
     <!-- menu -->
     <div
-        class="hidden overlay bg-transparent  w-full h-full z-50 px-14 flex flex-col justify-evenly items-center  rounded-lg text-white text-white">
+        class="hidden overlay bg-transparent  w-full z-50 px-14 flex flex-col justify-evenly items-center  rounded-lg text-white text-white">
 
         <!-- player two ready button -->
         <button
@@ -48,7 +48,7 @@
         <!-- layouts -->
         <section class="selection-container grid content-center grid-rows-2 grid-cols-3 gap-y-12 gap-x-10 ">
             <button layout="2"
-                class="layout-btn scale-110 grid justify-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-2 rounded-lg">
+                class="layout-btn  grid justify-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-2 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Parallel</div>
                 <div
                     class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-2 rounded-sm mx-2">
@@ -899,7 +899,7 @@
     </div>
 
     <!-- loading screen -->
-    <div class="hidden loader h-full grid content-center justify-center pointer-events-none">
+    <div class="hidden loader  grid content-center justify-center pointer-events-none">
         <div class="loader-p2 flex justify-center -center">
             <!-- svg -->
         </div>
@@ -908,7 +908,7 @@
 
         <div class="w-screen h-2 flex justify-center my-12">
             <div class="relative bg-neutral-700 h-2 w-full rounded-full flex justify-center">
-                <div class="loader-bar h-full bg-slate-100 rounded-full"></div>
+                <div class="loader-bar  bg-slate-100 rounded-full"></div>
             </div>
 
         </div>
@@ -922,7 +922,7 @@
 
     <!-- game board -->
 
-    <div class="hidden game-active pointer-events-none">
+    <div class="z-40 hidden game-active pointer-events-none grid content-center justify-center">
         <!-- player two -->
         <section class="flex w-full rotate-180">
             <div class="w-full justify-center -ml-7  text-2xl">
@@ -968,9 +968,9 @@
 
 
     <!-- results stats -->
-    <div class="hidden overflow-y-hidden overlay-results absolute h-full w-full grid content-between justify-center text-neutral-100 ">
-        <div style="transform: translateY(-21em) scale(-1)" class="player-two-modal relative h-full w-screen font-medium bg-neutral-900 rotate-180">
-            <div class=" h-full w-screen grid content-between">
+    <div class="z-50 hidden  overflow-y-hidden overlay-results absolute  w-full grid content-between justify-center text-neutral-100 ">
+        <div style="transform: translateY(-21em) scale(-1)" class="player-two-modal relative  w-screen font-medium bg-neutral-900 rotate-180">
+            <div class="  w-screen grid content-between">
                 <div class="absolute flex justify-between items-center w-full py-2 px-36">
                     <p class="text-2xl">Results</p>
                     <p class="player-two-open"></p>
@@ -990,8 +990,8 @@
             </div>
         </div>
 
-        <div style="transform: translateY(21em);" class="player-one-modal relative h-full w-screen font-medium bg-red-500 ">
-            <div class=" h-full w-screen grid content-between">
+        <div style="transform: translateY(21em);" class="player-one-modal relative  w-screen font-medium bg-purple-500 ">
+            <div class="  w-screen grid content-between">
                 <div class="absolute flex justify-between items-center w-full py-2 px-36">
                     <p class="text-2xl">Results</p>
                     <p class="player-one-open"></p>

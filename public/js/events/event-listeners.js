@@ -1,13 +1,4 @@
-const playerOneBtn = document.querySelector('.player-one-ready')
-const playerTwoBtn = document.querySelector('.player-two-ready')
-const menu = document.querySelector('.overlay')
-const overlayResults = document.querySelector('.overlay-results')
-const playerOneResults = document.querySelector('.player-one-results')
-const playerTwoResults = document.querySelector('.player-two-results')
-const layoutBtns = document.querySelectorAll('.layout-btn')
-const playerOneOpen = document.querySelector('.player-one-open')
-const playerTwoOpen = document.querySelector('.player-two-open')
-const backgroundEL = document.querySelector('.background-player2')
+
 
 bodyEL.addEventListener('click', fadeoutTitleScreen)
 
@@ -34,7 +25,7 @@ function fadeoutTitleScreen() {
             backgroundEL.style.transform = 'translateY(0em)'
             clearInterval(t)
         }
-        backgroundEL.style.transform = `translateY(${(em /10) * -1.2}em)`
+        backgroundEL.style.transform = `translateY(${(em /10) * -2.5}em)`
     }, 1);
 }
 

@@ -1,7 +1,27 @@
 const bodyEL = document.querySelector('body')
+const boardContainer = document.querySelector('.board')
+const playerOneBtn = document.querySelector('.player-one-ready')
+const playerTwoBtn = document.querySelector('.player-two-ready')
+const menu = document.querySelector('.overlay')
+const overlayResults = document.querySelector('.overlay-results')
+const playerOneResults = document.querySelector('.player-one-results')
+const playerTwoResults = document.querySelector('.player-two-results')
+const layoutBtns = document.querySelectorAll('.layout-btn')
+const playerOneOpen = document.querySelector('.player-one-open')
+const playerTwoOpen = document.querySelector('.player-two-open')
+const backgroundEL = document.querySelector('.background-player2')
+const gameBoard = document.querySelector('.game-active')
+const loaderEL = document.querySelector('.loader')
+
+
+
 let w = window.innerHeight
 console.log(w);
 bodyEL.style.height = `${w}px`
+overlayResults.style.height = `${w}px`
+menu.style.height = `${w}px`
+gameBoard.style.height = `${w}px`
+loaderEL.style.height = `${w}px`
 const size = 11
 const cellSize = 14
 const selectableColor = 'bg-neutral-300'
