@@ -22,6 +22,7 @@ overlayResults.style.height = `${w}px`
 menu.style.height = `${w}px`
 gameBoard.style.height = `${w}px`
 loaderEL.style.height = `${w}px`
+backgroundEL.style.height = `${w/2}px`
 const size = 11
 const cellSize = 14
 const selectableColor = 'bg-neutral-300'
