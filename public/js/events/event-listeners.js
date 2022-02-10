@@ -16,7 +16,7 @@ function fadeoutTitleScreen() {
     bodyEL.removeEventListener('click', fadeoutTitleScreen)
     let element = document.querySelector('.title-screen')
     element.classList.toggle('animate-pulse')
-    let em = 120
+    let em = 100
     let fadeDur = 100
     let timer = setInterval(() => {
         fadeDur--
@@ -34,7 +34,7 @@ function fadeoutTitleScreen() {
             backgroundEL.style.transform = 'translateY(0em)'
             clearInterval(t)
         }
-        backgroundEL.style.transform = `translateY(${(em /10) * -1}em)`
+        backgroundEL.style.transform = `translateY(${(em /10) * -1.2}em)`
     }, 1);
 }
 
