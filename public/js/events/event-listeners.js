@@ -5,6 +5,8 @@ const overlayResults = document.querySelector('.overlay-results')
 const playerOneResults = document.querySelector('.player-one-results')
 const playerTwoResults = document.querySelector('.player-two-results')
 const layoutBtns = document.querySelectorAll('.layout-btn')
+const playerOneOpen = document.querySelector('.player-one-open')
+const playerTwoOpen = document.querySelector('.player-two-open')
 
 bodyEL.addEventListener('click', fadeoutTitleScreen)
 
@@ -26,9 +28,9 @@ function fadeoutTitleScreen() {
 }
 
 
-overlayResults.addEventListener('click', function () {
-    location.reload()
-})
+// overlayResults.addEventListener('click', function () {
+//     location.reload()
+// })
 let opac = .8
 
 boardEL.addEventListener('click', (e) => {
@@ -201,6 +203,40 @@ const fadeOutBoard = () => {
         }
         el.style.opacity = `${incriment / fadeDur}`
     }, 1);
+}
+
+const togglePlayerModals = (e) => {
+    const el = e.target
+    // console.log(el);
+    let parent = el.parentElement.parentElement.parentElement
+    if(el.classList.contains('open')){
+        let em = 250
+        let t = setInterval(() => {
+            em -= 4
+            if(em <= 40){ 
+                clearInterval(t)
+                parent.style.height = `4em`
+                return
+            }
+            parent.style.height = `${em/10}em`
+        }, 1);
+        el.innerHTML = open
+        el.classList.toggle('open')
+    } else {
+        let em = 40
+        let t = setInterval(() => {
+            em += 4
+            if(em >= 250){ 
+                clearInterval(t)
+                parent.style.height = `25em`
+                return
+            }
+            parent.style.height = `${em/10}em`
+        }, 1);
+        el.innerHTML = collapse
+        el.classList.toggle('open')
+    }
+
 }
 
 

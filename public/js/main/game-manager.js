@@ -63,6 +63,12 @@ const whoWon = (index) => {
 
 const fadeInResults = () => {
     // debugger
+    playerOneOpen.innerHTML = collapse
+    playerTwoOpen.innerHTML = collapse
+    playerOneOpen.classList.add('open')
+    playerTwoOpen.classList.add('open')
+    playerOneOpen.addEventListener('click', togglePlayerModals)
+    playerTwoOpen.addEventListener('click', togglePlayerModals)
     overlayResults.style.opacity = 0
     // document.querySelector('.replay').innerHTML = replay
     overlayResults.classList.toggle('hidden')
@@ -72,7 +78,7 @@ const fadeInResults = () => {
         incriment++
         if(incriment > duration){
             clearInterval(timer)
-            overlayResults.classList.toggle('pointer-events-none')
+            // overlayResults.classList.toggle('pointer-events-none')
         }
         overlayResults.style.opacity = incriment/duration
     }, 1);
