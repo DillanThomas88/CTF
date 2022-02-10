@@ -18,7 +18,7 @@ function fadeoutTitleScreen() {
         
         element.style.opacity = fadeDur / 100
     }, 1)
-    
+
     let em = 100
     let t = setInterval(() => {
         em--
@@ -75,26 +75,26 @@ const toggleReady = (e) => {
         isPlayerOneReady = !isPlayerOneReady
         if (isPlayerOneReady) {
             playerOneBtn.textContent = 'Ready!'
-            playerOneBtn.classList.toggle('bg-neutral-100')
             playerOneBtn.classList.toggle('bg-neutral-900')
+            playerOneBtn.classList.toggle('bg-blue-500')
             playerOneBtn.classList.toggle('text-neutral-900')
         } else {
             playerOneBtn.textContent = 'Ready?'
+            playerOneBtn.classList.toggle('bg-blue-500')
             playerOneBtn.classList.toggle('bg-neutral-900')
-            playerOneBtn.classList.toggle('bg-neutral-100')
             playerOneBtn.classList.toggle('text-neutral-900')
         }
     } else if (element.classList.contains('player-two-ready')) {
         isPlayerTwoReady = !isPlayerTwoReady
         if (isPlayerTwoReady) {
             playerTwoBtn.textContent = 'Ready!'
-            playerTwoBtn.classList.toggle('bg-neutral-100')
-            playerTwoBtn.classList.toggle('bg-neutral-900')
+            playerTwoBtn.classList.toggle('bg-neutral-300')
+            playerTwoBtn.classList.toggle('bg-blue-500')
             playerTwoBtn.classList.toggle('text-neutral-900')
         } else {
             playerTwoBtn.textContent = 'Ready?'
-            playerTwoBtn.classList.toggle('bg-neutral-900')
-            playerTwoBtn.classList.toggle('bg-neutral-100')
+            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle('bg-neutral-300')
             playerTwoBtn.classList.toggle('text-neutral-900')
         }
     } else {
@@ -361,8 +361,7 @@ const ifSelctedMoveTo = (target) => {
                     if (rowCol[toINT].children[0].classList.contains('white-star')) {
                         rowCol[toINT].innerHTML = `${blackCarrier}\n${barrier}`
                         rowCol[toINT].children[1].classList.toggle('white-barrier')
-                        flashElement(document.querySelector('.white-flash'),'bg-white','bg-purple-500')
-
+                        toggleFlagStatus('.white-away')
                     } else if (rowCol[toINT].children[0].classList.contains('black-star')) {
                         rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
                         rowCol[toINT].children[1].classList.toggle('black-barrier')
@@ -380,7 +379,7 @@ const ifSelctedMoveTo = (target) => {
                 board.resetSelectables()
                 if (target.classList.contains(winColor)) {
                     whoWon(rowCol[toINT])
-                    fadeOutBoard()
+                    // fadeOutBoard()
                     fadeInResults()
 
                     // let ti = setInterval(() => {
@@ -417,7 +416,8 @@ const highlightMovableCells = (target) => {
             });
 
             target.classList.toggle('selected')
-
+            target.classList.toggle(cellColor)
+            target.classList.add(selectableColor)
             let r = parseInt(target.getAttribute('row'))
             let c = parseInt(target.getAttribute('col'))
 

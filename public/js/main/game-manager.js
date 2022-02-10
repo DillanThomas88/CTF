@@ -25,13 +25,16 @@ loaderEL.style.height = `${w}px`
 backgroundEL.style.height = `${w/2}px`
 const size = 11
 const cellSize = 14
-const selectableColor = 'bg-neutral-300'
-const cellColor = 'bg-neutral-400'
+let playerColor;
+const selectableColor = 'bg-stone-300'
+const cellColor = 'bg-neutral-100'
+// const selectedPieceColor = 'bg-yellow-200'
 const winColor = 'bg-yellow-400'
+const updateColor = 'orange'
 
 const wall = 'fill-neutral-800'
 const black = 'fill-neutral-800'
-const white = 'fill-white'
+const white = 'fill-blue-500'
 const opacity = 'opacity-20'
 
 const winQuote = 'You Won'
@@ -49,7 +52,7 @@ let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
 const notSlected = 'bg-neutral-900'
-const selected = 'bg-neutral-100'
+const selected = 'bg-blue-500'
 
 const nextTurn = () => {
     isWhitesTurn = !isWhitesTurn
@@ -115,7 +118,7 @@ const findActiveBtnsAndReset = () => {
             element.classList.toggle('active')
             element.classList.toggle(selected)
             element.classList.toggle(notSlected)
-            element.classList.toggle('text-neutral-800')
+            element.classList.toggle('text-neutral-100')
             element.classList.toggle('text-neutral-400')
         }
     })
@@ -129,7 +132,7 @@ const toggleLayouts = (e) => {
     element.classList.toggle(notSlected)
     element.classList.toggle(selected)
     element.classList.toggle('text-neutral-400')
-    element.classList.toggle('text-neutral-800')
+    element.classList.toggle('text-neutral-100')
 }
 
 const toggleFlagStatus = (x) => {
@@ -142,12 +145,13 @@ const toggleFlagStatus = (x) => {
         if(x === '.white-away'){
             away.classList.toggle('text-purple-500')
             away.classList.toggle(whitecolor)
+            away.classList.toggle('animate-pulse')
             away.parentElement.classList.toggle('border-purple-500')
             away.parentElement.classList.toggle(whiteborder)
 
         } else {
-            away.classList.toggle(whitecolor)
             away.classList.toggle(blackcolor)
+            away.classList.toggle(whitecolor)
             away.classList.toggle('animate-pulse')
             away.parentElement.classList.toggle(whiteborder)
             away.parentElement.classList.toggle(blackborder)
@@ -157,6 +161,7 @@ const toggleFlagStatus = (x) => {
         if(x === '.white-away'){
             away.classList.toggle(whitecolor)
             away.classList.toggle('text-purple-500')
+            away.classList.toggle('animate-pulse')
             away.parentElement.classList.toggle(whiteborder)
             away.parentElement.classList.toggle('border-purple-500')
             
