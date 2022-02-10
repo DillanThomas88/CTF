@@ -133,20 +133,40 @@ const toggleLayouts = (e) => {
 
 const toggleFlagStatus = (x) => {
     let away = document.querySelector(x)
+    let whitecolor = 'text-white'
+    let whiteborder = 'border-white'
+    let blackcolor = 'text-black'
+    let blackborder = 'border-black'
     if(away.innerHTML === flagAway){
+        if(x === '.white-away'){
+            away.classList.toggle('text-purple-500')
+            away.classList.toggle(whitecolor)
+            away.parentElement.classList.toggle('border-purple-500')
+            away.parentElement.classList.toggle(whiteborder)
+
+        } else {
+            away.classList.toggle(whitecolor)
+            away.classList.toggle(blackcolor)
+            away.classList.toggle('animate-pulse')
+            away.parentElement.classList.toggle(whiteborder)
+            away.parentElement.classList.toggle(blackborder)
+        }
         away.innerHTML = flagHome
-        away.classList.toggle('text-amber-100')
-        away.classList.toggle('text-blue-100')
-    away.classList.toggle('animate-pulse')
-    away.parentElement.classList.toggle('border-amber-500')
-    away.parentElement.classList.toggle('border-blue-500')
     } else {
+        if(x === '.white-away'){
+            away.classList.toggle(whitecolor)
+            away.classList.toggle('text-purple-500')
+            away.parentElement.classList.toggle(whiteborder)
+            away.parentElement.classList.toggle('border-purple-500')
+            
+        } else {
+            away.classList.toggle(blackcolor)
+            away.classList.toggle(whitecolor)
+            away.classList.toggle('animate-pulse')
+            away.parentElement.classList.toggle(blackborder)
+            away.parentElement.classList.toggle(whiteborder)
+        }
         away.innerHTML = flagAway
-        away.classList.toggle('text-blue-100')
-        away.classList.toggle('text-amber-100')
-        away.classList.toggle('animate-pulse')
-        away.parentElement.classList.toggle('border-blue-500')
-        away.parentElement.classList.toggle('border-amber-500')
 
     }
 }

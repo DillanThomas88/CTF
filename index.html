@@ -11,7 +11,8 @@
 
 <body style="background-color: #0f0f0f;"
     class="overflow-y-none relative select-none uppercase font-bold w-screen text-stone-100  grid content-center justify-center">
-    <div style="height: 50vh; transform: translateY(-25em);" class="z-10 fixed background-player2 rotate-180 bg-purple-500  w-screen"></div>
+    <div style="height: 50vh; transform: translateY(-25em);"
+        class="z-10 fixed background-player2 rotate-180 bg-purple-500  w-screen"></div>
 
     <!-- title screen -->
     <div class=" relative  title-screen pointer-events-none grid content-center justify-center pb-10">
@@ -33,7 +34,7 @@
     </div>
     <!-- menu -->
     <div
-        class="hidden overlay bg-transparent  w-full z-50 px-14 flex flex-col justify-evenly items-center  rounded-lg text-white text-white">
+        class="hidden overlay bg-transparent  w-full z-50 px-14 py-28 flex flex-col justify-evenly items-center  rounded-lg text-white text-white">
 
         <!-- player two ready button -->
         <button
@@ -47,436 +48,42 @@
         <!-- <hr class="z-50 absolute outline-none bg-white w-full"> -->
         <!-- layouts -->
         <section class="selection-container grid content-center grid-rows-2 grid-cols-3 gap-y-12 gap-x-10 ">
-            <button layout="2"
-                class="layout-btn  grid justify-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-2 rounded-lg">
-                <div class="pointer-events-none rotate-180 flex justify-center py-1">Parallel</div>
-                <div
-                    class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-2 rounded-sm mx-2">
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-900 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500  h-2 w-2"></div>
-                    <div class="bg-neutral-500  h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500  h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-slate-100 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                </div>
-                <div class="pointer-events-none flex justify-center py-1">Parallel</div>
-            </button>
             <button layout="1"
                 class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Crossover</div>
-                <div
-                    class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
-                   <img src="./public/images/game-shot-1.png" alt="">
+                <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
+                    <img src="./public/images/game-1.png" alt="">
                 </div>
                 <div class="pointer-events-none flex justify-center py-1">Crossover</div>
+            </button>
+            <button layout="2"
+                class="layout-btn  grid justify-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-2 rounded-lg">
+                <div class="pointer-events-none rotate-180 flex justify-center py-1">Parallel</div>
+                <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
+                    <!-- new row -->
+                    <img src="./public/images/game-2.png" alt="">
+                </div>
+                <div class="pointer-events-none flex justify-center py-1">Parallel</div>
             </button>
             <button layout="3"
                 class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Duality</div>
-                <div
-                    class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-2 rounded-sm mx-2">
+                <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-900 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500  h-2 w-2"></div>
-                    <div class="bg-neutral-500  h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500  h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- middle -->
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-slate-100 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
+                    <img src="./public/images/game-3.png" alt="">
                 </div>
                 <div class="pointer-events-none flex justify-center py-1">Duality</div>
             </button>
             <button layout="4"
                 class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Squid</div>
-                <div
-                    class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-2 rounded-sm mx-2">
+                <div class="pointer-events-none  w-36 bg-neutral-900 p-2 rounded-sm mx-2">
                     <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-900 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- middle -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-slate-100 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-slate-300 h-2 w-2"></div>
+                    <img src="./public/images/game-4.png" alt="">
                 </div>
                 <div class="pointer-events-none flex justify-center py-1">Squid</div>
             </button>
-            <button layout="1"
+            <button layout="0"
                 class="opacity-30  grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">coming soon</div>
                 <div
@@ -619,140 +226,8 @@
             <button layout="6"
                 class="layout-btn grid justify-center text-center text-sm font-medium uppercase bg-neutral-900 text-neutral-400   px-1 rounded-lg">
                 <div class="pointer-events-none rotate-180 flex justify-center py-1">Pacifist</div>
-                <div
-                    class="pointer-events-none grid grid-cols-11 grid-rows-11 gap-1 w-36 bg-neutral-900 p-2 rounded-sm mx-2">
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-900 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <!-- middle row -->
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-800 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-100 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-100 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-100 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-slate-100 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <div class="bg-rose-500 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-100 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-100 h-2 w-2"></div>
-                    <!-- new row -->
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-blue-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
-                    <div class="bg-neutral-500 h-2 w-2"></div>
+                <div class="pointer-events-none w-36 bg-neutral-900 p-2 rounded-sm mx-2">
+                    <img src="./public/images/game-6.png" alt="">
                 </div>
                 <div class="pointer-events-none flex justify-center py-1">Pacifist</div>
             </button>
@@ -768,7 +243,7 @@
     </div>
 
     <!-- loading screen -->
-    <div class="hidden loader  grid content-center justify-center pointer-events-none">
+    <div class="hidden loader z-50  grid content-center justify-center pointer-events-none">
         <div class="loader-p2 flex justify-center -center">
             <!-- svg -->
         </div>
@@ -794,24 +269,27 @@
     <div class="z-40 hidden game-active pointer-events-none grid content-center justify-center">
         <!-- player two -->
         <section class="flex w-full rotate-180">
-            <div class="w-full justify-center -ml-7  text-2xl">
+            <div class="w-full justify-center -ml-7 text-black  text-2xl">
                 <div class="flex flex-row pb-2">
                     <div class="pr-6">capture the flag</div>
                     <div
-                        class="w-80 text-xl normal-case italic font-medium  border-l-4 border-blue-500 flex opacity-80 -mr-7">
-                        <div class="black-away text-blue-100  pl-6">Your flag is home</div>
+                        class="text-xl normal-case italic font-medium  border-l-4 border-black flex -mr-7">
+                        <div class="relative black-away w-full  pl-6">
+                            <p>Your flag is home</p>
+                            <div style="opacity: 0;" class="black-flash absolute w-full h-full bg-white top-0 left-0 w-96 rounded-r-sm"></div>
+                        </div>
                     </div>
 
                 </div>
                 <!-- <hr style="height: 1px;" class="  opacity-30 my-1"> -->
                 <div class="normal-case">
-                    <div class="text-sm text-stone-400">Seek out your opponents flag and bring it home.
+                    <div class="text-sm">Seek out your opponents flag and bring it home.
                     </div>
                 </div>
             </div>
         </section>
         <!-- board -->
-        <section class="board  scale-110 my-12">
+        <section class="board  scale-110 my-12 overflow-x-hidden">
             <!-- board pieces -->
         </section>
         <!-- player one -->
@@ -820,14 +298,17 @@
                 <div class="flex flex-row pb-2">
                     <div class="pr-6">capture the flag</div>
                     <div
-                        class="w-80 text-xl normal-case italic font-medium  border-l-4 border-blue-500 flex opacity-80 -mr-7">
-                        <div class="white-away text-blue-100  pl-6 ">Your flag is home</div>
+                        class=" text-xl normal-case italic font-medium  border-l-4 border-white flex -mr-7">
+                        <div class="relative white-away text-white w-full  pl-6">
+                            <p>Your flag is home</p>
+                            <div style="opacity: 0;" class="white-flash absolute w-full h-full bg-purple-500 top-0 left-0 w-96 rounded-r-sm"></div>
+                        </div>
                     </div>
 
                 </div>
                 <!-- <hr style="height: 1px;" class="  opacity-30 my-1"> -->
                 <div class="normal-case">
-                    <div class="text-sm text-stone-400">Seek out your opponents flag and bring it home.
+                    <div class="text-sm">Seek out your opponents flag and bring it home.
                     </div>
                 </div>
             </div>
@@ -837,21 +318,28 @@
 
 
     <!-- results stats -->
-    <div class="z-50 hidden  overflow-y-hidden overlay-results absolute  w-full grid content-between justify-center text-neutral-100 ">
-        <div style="transform: translateY(-21em) scale(-1)" class="player-two-modal relative  w-screen font-medium bg-neutral-900 rotate-180">
+    <div
+        class="z-50 hidden  overflow-y-hidden overlay-results absolute  w-full grid content-between justify-center text-neutral-100 ">
+        <div style="transform: translateY(-21em) scale(-1)"
+            class="player-two-modal relative  w-screen font-medium bg-neutral-900 rotate-180">
             <div class="  w-screen grid content-between">
                 <div class="absolute flex justify-between items-center w-full py-2 px-36">
                     <p class="text-2xl">Results</p>
                     <p class="player-two-open"></p>
                 </div>
-                <div  class=" items-start-start justify-start pb-24 pt-14 px-36"> 
+                <div class=" items-start-start justify-start pb-24 pt-14 px-36">
                     <p class="text-5xl font-thin pb-4 pt-2">White Wins</p>
                     <div class="grid grid-rows-2 grid-cols-6 gap-4 content-center text-center">
-                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Total Moves <br><span class="font-bold">76</span></p>
-                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Tempe Gain <br> <span class="font-bold">+ 2</span></p>
-                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Game Length <br> <span class="font-bold">32:26</span></p>
-                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Returned Flag <br> <span class="font-bold">2 Times</span></p>
-                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Avg Move Dur <br> <span class="font-bold">15.6 sec</span></p>
+                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Total Moves <br><span
+                                class="font-bold">76</span></p>
+                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Tempe Gain <br> <span
+                                class="font-bold">+ 2</span></p>
+                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Game Length <br>
+                            <span class="font-bold">32:26</span></p>
+                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Returned Flag <br>
+                            <span class="font-bold">2 Times</span></p>
+                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Avg Move Dur <br>
+                            <span class="font-bold">15.6 sec</span></p>
                     </div>
 
                 </div>
@@ -859,20 +347,26 @@
             </div>
         </div>
 
-        <div style="transform: translateY(21em);" class="player-one-modal relative  w-screen font-medium bg-purple-500 ">
+        <div style="transform: translateY(21em);"
+            class="player-one-modal relative  w-screen font-medium bg-purple-500 ">
             <div class="  w-screen grid content-between">
                 <div class="absolute flex justify-between items-center w-full py-2 px-36">
                     <p class="text-2xl">Results</p>
                     <p class="player-one-open"></p>
                 </div>
-                <div  class=" items-start-start justify-start pb-24 pt-14 px-36"> 
+                <div class=" items-start-start justify-start pb-24 pt-14 px-36">
                     <p class="text-5xl font-thin pb-4 pt-2">White Wins</p>
                     <div class="grid grid-rows-2 grid-cols-6 gap-4 content-center text-center">
-                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Total Moves <br><span class="font-bold">76</span></p>
-                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Tempe Gain <br> <span class="font-bold">+ 2</span></p>
-                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Game Length <br> <span class="font-bold">32:26</span></p>
-                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Returned Flag <br> <span class="font-bold">2 Times</span></p>
-                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Avg Move Dur <br> <span class="font-bold">15.6 sec</span></p>
+                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Total Moves <br><span
+                                class="font-bold">76</span></p>
+                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Tempe Gain <br> <span
+                                class="font-bold">+ 2</span></p>
+                        <p class="text-lg border border-2 col-span-2 border-black rounded-lg py-2">Game Length <br>
+                            <span class="font-bold">32:26</span></p>
+                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Returned Flag <br>
+                            <span class="font-bold">2 Times</span></p>
+                        <p class="text-lg border border-2 col-span-3 border-black rounded-lg py-2">Avg Move Dur <br>
+                            <span class="font-bold">15.6 sec</span></p>
                     </div>
 
                 </div>

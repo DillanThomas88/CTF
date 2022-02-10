@@ -75,11 +75,11 @@ const toggleReady = (e) => {
         if (isPlayerOneReady) {
             playerOneBtn.textContent = 'Ready!'
             playerOneBtn.classList.toggle('bg-neutral-100')
-            playerOneBtn.classList.toggle('bg-blue-500')
+            playerOneBtn.classList.toggle('bg-neutral-900')
             playerOneBtn.classList.toggle('text-neutral-900')
         } else {
             playerOneBtn.textContent = 'Ready?'
-            playerOneBtn.classList.toggle('bg-blue-500')
+            playerOneBtn.classList.toggle('bg-neutral-900')
             playerOneBtn.classList.toggle('bg-neutral-100')
             playerOneBtn.classList.toggle('text-neutral-900')
         }
@@ -88,11 +88,11 @@ const toggleReady = (e) => {
         if (isPlayerTwoReady) {
             playerTwoBtn.textContent = 'Ready!'
             playerTwoBtn.classList.toggle('bg-neutral-100')
-            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle('bg-neutral-900')
             playerTwoBtn.classList.toggle('text-neutral-900')
         } else {
             playerTwoBtn.textContent = 'Ready?'
-            playerTwoBtn.classList.toggle('bg-blue-500')
+            playerTwoBtn.classList.toggle('bg-neutral-900')
             playerTwoBtn.classList.toggle('bg-neutral-100')
             playerTwoBtn.classList.toggle('text-neutral-900')
         }
@@ -178,6 +178,21 @@ const fadeOutLoader = () => {
     }, 1);
 }
 
+const flashElement = (el, color1, color2) => {
+    let opacity = 500
+    el.classList.toggle(color1)
+    el.classList.toggle(color2)
+    el.style.opacity = opacity/1000
+    let t = setInterval(() => {
+        opacity--
+        if(opacity <= 0){
+            clearInterval(t)
+        }
+        el.style.opacity = opacity/1000
+    }, 1);
+
+}
+
 const startGame = () => {
     let element = document.querySelector('.game-active')
     element.style.opacity = 0
@@ -189,6 +204,11 @@ const startGame = () => {
             clearInterval(timer)
             element.classList.toggle('pointer-events-none')
             element.style.opacity = 1
+            let t = setInterval(() => {
+                flashElement(document.querySelector('.white-flash'),'bg-purple-500','bg-white')
+                flashElement(document.querySelector('.black-flash'),'bg-white','bg-black')
+                clearInterval(t)
+            }, 1000);
         }
         element.style.opacity = `${fadeDur / 100}`
     }, 1);
@@ -340,7 +360,7 @@ const ifSelctedMoveTo = (target) => {
                     if (rowCol[toINT].children[0].classList.contains('white-star')) {
                         rowCol[toINT].innerHTML = `${blackCarrier}\n${barrier}`
                         rowCol[toINT].children[1].classList.toggle('white-barrier')
-                        toggleFlagStatus('.white-away')
+                        flashElement(document.querySelector('.white-flash'),'bg-white','bg-purple-500')
 
                     } else if (rowCol[toINT].children[0].classList.contains('black-star')) {
                         rowCol[toINT].innerHTML = `${whiteCarrier}\n${barrier}`
