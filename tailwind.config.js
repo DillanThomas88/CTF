@@ -15,7 +15,7 @@ module.exports = {
         'montserrat': ['Montserrat'],
     },
     screens: {
-      '12pro': '390px',
+      '12pro': '375px',
 
       'sm': '640px',
 

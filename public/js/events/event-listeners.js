@@ -1,6 +1,11 @@
 
 
-bodyEL.addEventListener('click', fadeoutTitleScreen)
+if(w >= 1180){
+    bodyEL.addEventListener('click', fadeoutTitleScreen)
+} else {
+    document.querySelector('.press-start').innerHTML = `sorry..<br>iPad only`
+}
+    
 
 
 function fadeoutTitleScreen() {

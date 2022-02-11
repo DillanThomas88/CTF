@@ -23,6 +23,9 @@ menu.style.height = `${w}px`
 gameBoard.style.height = `${w}px`
 loaderEL.style.height = `${w}px`
 backgroundEL.style.height = `${w/2}px`
+
+
+
 const size = 11
 const cellSize = 14
 let playerColor;
@@ -34,7 +37,7 @@ const updateColor = 'orange'
 
 const wall = 'fill-neutral-800'
 const black = 'fill-neutral-800'
-const white = 'fill-blue-500'
+const white = 'fill-red-500'
 const opacity = 'opacity-20'
 
 const winQuote = 'You Won'
@@ -52,7 +55,7 @@ let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
 const notSlected = 'bg-neutral-100'
-const selected = 'bg-blue-500'
+const selected = 'bg-red-500'
 
 const nextTurn = () => {
     isWhitesTurn = !isWhitesTurn

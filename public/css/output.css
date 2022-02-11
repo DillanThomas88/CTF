@@ -472,9 +472,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
-@media (min-width: 390px) {
+@media (min-width: 375px) {
   .container {
-    max-width: 390px;
+    max-width: 375px;
   }
 }
 
@@ -890,14 +890,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-left-width: 8px;
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .border-blue-400 {
@@ -929,9 +929,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(245 245 244 / var(--tw-bg-opacity));
 }
 
-.bg-stone-500 {
+.bg-neutral-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(120 113 108 / var(--tw-bg-opacity));
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
 .bg-neutral-500 {
@@ -944,9 +944,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
 }
 
-.bg-blue-500 {
+.bg-red-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .bg-black {
@@ -974,39 +974,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(214 211 209 / var(--tw-bg-opacity));
 }
 
-.bg-neutral-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
-}
-
 .bg-yellow-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 240 138 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
-}
-
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
-.bg-stone-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(28 25 23 / var(--tw-bg-opacity));
-}
-
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
-.bg-neutral-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
 }
 
 .bg-stone-400 {
@@ -1014,17 +984,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(168 162 158 / var(--tw-bg-opacity));
 }
 
-.bg-rose-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 63 94 / var(--tw-bg-opacity));
-}
-
 .fill-neutral-800 {
   fill: #262626;
 }
 
-.fill-blue-500 {
-  fill: #3b82f6;
+.fill-red-500 {
+  fill: #ef4444;
 }
 
 .fill-neutral-900 {
@@ -1039,16 +1004,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   fill: #fff;
 }
 
-.fill-red-500 {
-  fill: #ef4444;
-}
-
-.fill-purple-500 {
-  fill: #a855f7;
-}
-
-.fill-rose-500 {
-  fill: #f43f5e;
+.fill-blue-500 {
+  fill: #3b82f6;
 }
 
 .p-2 {
@@ -1227,9 +1184,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(115 115 115 / var(--tw-text-opacity));
 }
 
-.text-blue-500 {
+.text-red-500 {
   --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .text-neutral-400 {
@@ -1262,11 +1219,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(168 85 247 / var(--tw-text-opacity));
 }
 
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
 .opacity-10 {
   opacity: 0.1;
 }
@@ -1297,4 +1249,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (min-width: 375px) {
+  .\31 2pro\:scale-50 {
+    --tw-scale-x: .5;
+    --tw-scale-y: .5;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .\31 2pro\:pl-0 {
+    padding-left: 0px;
+  }
+
+  .\31 2pro\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
