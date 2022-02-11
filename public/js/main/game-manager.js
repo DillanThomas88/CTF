@@ -32,7 +32,7 @@ let playerColor;
 const selectableColor = 'bg-stone-300'
 const cellColor = 'bg-neutral-100'
 // const selectedPieceColor = 'bg-yellow-200'
-const winColor = 'bg-stone-400'
+const winColor = 'bg-neutral-400'
 const updateColor = 'orange'
 
 const wall = 'fill-neutral-800'
