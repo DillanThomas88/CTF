@@ -7,8 +7,8 @@ document.querySelectorAll('.title-splash').forEach(element => {
     element.children[0].children[0].classList.toggle('fill-neutral-100')
     element.children[0].children[0].classList.toggle('fill-neutral-400')
 })
-
-if(w >= 1140){
+console.log(window.outerHeight);
+if(window.outerHeight >= 1179){
     bodyEL.addEventListener('click', fadeoutTitleScreen)
 } else {
     document.querySelector('.press-start').innerHTML = `sorry..<br>iPad only`
