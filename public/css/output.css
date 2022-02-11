@@ -1258,12 +1258,51 @@ Ensure the default browser behavior of the `hidden` attribute.
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
+  .\31 2pro\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .\31 2pro\:pl-0 {
     padding-left: 0px;
+  }
+
+  .\31 2pro\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
+  .\31 2pro\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .\31 2pro\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .\31 2pro\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 820px) {
+  .ipad\:scale-100 {
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .ipad\:pb-10 {
+    padding-bottom: 2.5rem;
+  }
+
+  .ipad\:pb-6 {
+    padding-bottom: 1.5rem;
+  }
+
+  .ipad\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
