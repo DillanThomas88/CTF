@@ -4,8 +4,8 @@ document.querySelectorAll('.title-splash').forEach(element => {
     element.children[0].classList.toggle('w-14')
     element.children[0].classList.toggle('h-96')
     element.children[0].classList.toggle('rotate-180')
-    element.children[0].children[0].classList.toggle('fill-neutral-100')
-    element.children[0].children[0].classList.toggle('fill-neutral-400')
+    // element.children[0].children[0].classList.toggle('fill-neutral-100')
+    // element.children[0].children[0].classList.toggle('fill-neutral-400')
 })
 console.log(window.innerWidth);
 if(window.innerWidth >= 820){
