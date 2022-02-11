@@ -1022,6 +1022,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   fill: #10b981;
 }
 
+.fill-neutral-500 {
+  fill: #737373;
+}
+
+.fill-neutral-400 {
+  fill: #a3a3a3;
+}
+
+.fill-neutral-300 {
+  fill: #d4d4d4;
+}
+
 .p-2 {
   padding: 0.5rem;
 }

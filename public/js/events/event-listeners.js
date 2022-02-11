@@ -1,6 +1,14 @@
+document.querySelectorAll('.title-splash').forEach(element => {
+    element.innerHTML = icon
+    element.children[0].classList.toggle('h-14')
+    element.children[0].classList.toggle('w-14')
+    element.children[0].classList.toggle('h-96')
+    element.children[0].classList.toggle('rotate-180')
+    element.children[0].children[0].classList.toggle('fill-neutral-100')
+    element.children[0].children[0].classList.toggle('fill-neutral-400')
+})
 
-
-if(w >= 1180){
+if(w >= 1140){
     bodyEL.addEventListener('click', fadeoutTitleScreen)
 } else {
     document.querySelector('.press-start').innerHTML = `sorry..<br>iPad only`

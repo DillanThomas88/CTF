@@ -18,15 +18,7 @@ p1Loader.innerHTML = icon
 p1Loader.classList.toggle('rotate-180')
 
 let count = 0
-document.querySelectorAll('.title-splash').forEach(element => {
-    element.innerHTML = icon
-    element.children[0].classList.toggle('h-14')
-    element.children[0].classList.toggle('w-14')
-    element.children[0].classList.toggle('h-96')
-    element.children[0].classList.toggle('rotate-180')
-    element.children[0].children[0].classList.toggle('fill-neutral-100')
-    element.children[0].children[0].classList.toggle('fill-neutral-900')
-})
+
 
 
 let board = new Board
