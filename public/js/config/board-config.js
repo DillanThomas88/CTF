@@ -139,6 +139,7 @@ class Board {
 
 
     }
+    
     getNeighbors = (target) => {
         let rNum = parseInt(target.getAttribute('row'))
         let cNum = parseInt(target.getAttribute('col'))
