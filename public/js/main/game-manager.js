@@ -37,7 +37,7 @@ const updateColor = 'orange'
 
 const wall = 'fill-neutral-800'
 const black = 'fill-neutral-800'
-const white = 'fill-red-500'
+const white = 'fill-emerald-500'
 const opacity = 'opacity-20'
 
 const winQuote = 'You Won'
@@ -55,7 +55,9 @@ let isPlayerOneReady = false
 let isPlayerTwoReady = false
 
 const notSlected = 'bg-neutral-100'
-const selected = 'bg-red-500'
+const selected = 'bg-emerald-500'
+
+// loaderEL.classList.toggle(selected)
 
 const nextTurn = () => {
     isWhitesTurn = !isWhitesTurn
