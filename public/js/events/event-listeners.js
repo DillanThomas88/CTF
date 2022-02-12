@@ -220,8 +220,8 @@ const startGame = () => {
             element.classList.toggle('pointer-events-none')
             element.style.opacity = 1
             let t = setInterval(() => {
-                flashElement(document.querySelector('.white-flash'),'bg-purple-500','bg-white')
-                flashElement(document.querySelector('.black-flash'),'bg-white','bg-black')
+                flashElement(document.querySelector('.white-flash'),'bg-white','bg-white')
+                flashElement(document.querySelector('.black-flash'),'bg-white','bg-white')
                 clearInterval(t)
             }, 1000);
         }

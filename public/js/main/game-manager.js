@@ -143,39 +143,54 @@ const toggleLayouts = (e) => {
 const toggleFlagStatus = (x) => {
     let away = document.querySelector(x)
     let whitecolor = 'text-white'
-    let whiteborder = 'border-white'
+    let whiteborder = 'border-stone-100'
     let blackcolor = 'text-black'
     let blackborder = 'border-black'
+    let bgWhite = 'bg-white'
+    // flashElement(away,bgWhite,bgWhite)
     if(away.innerHTML === flagAway){
+
+        // if flag has been returned
+
         if(x === '.white-away'){
-            away.classList.toggle('text-purple-500')
+
+            // white
+            away.classList.toggle('text-yellow-500')
             away.classList.toggle(whitecolor)
             away.classList.toggle('animate-pulse')
-            away.parentElement.classList.toggle('border-purple-500')
-            away.parentElement.classList.toggle(whiteborder)
+            away.classList.toggle('opacity-50')
+            // away.parentElement.classList.toggle('border-yellow-500')
+            // away.parentElement.classList.toggle(whiteborder)
 
         } else {
-            away.classList.toggle(blackcolor)
+
+            // black
+            away.classList.toggle('text-yellow-500')
             away.classList.toggle(whitecolor)
             away.classList.toggle('animate-pulse')
-            away.parentElement.classList.toggle(whiteborder)
-            away.parentElement.classList.toggle(blackborder)
+            away.classList.toggle('opacity-50')
+            // away.parentElement.classList.toggle('border-yellow-500')
+            // away.parentElement.classList.toggle(whiteborder)
         }
         away.innerHTML = flagHome
     } else {
+
+        // if flag has been taken        
         if(x === '.white-away'){
+            // white
             away.classList.toggle(whitecolor)
-            away.classList.toggle('text-purple-500')
+            away.classList.toggle('text-yellow-500')
             away.classList.toggle('animate-pulse')
-            away.parentElement.classList.toggle(whiteborder)
-            away.parentElement.classList.toggle('border-purple-500')
+            // away.parentElement.classList.toggle(whiteborder)
+            // away.parentElement.classList.toggle('border-yellow-500')
             
         } else {
-            away.classList.toggle(blackcolor)
+            // black
             away.classList.toggle(whitecolor)
+            away.classList.toggle('text-yellow-500')
             away.classList.toggle('animate-pulse')
-            away.parentElement.classList.toggle(blackborder)
-            away.parentElement.classList.toggle(whiteborder)
+            // away.parentElement.classList.toggle(whiteborder)
+            // away.parentElement.classList.toggle('border-yellow-500')
         }
         away.innerHTML = flagAway
 
