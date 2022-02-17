@@ -136,7 +136,7 @@ const toggleLayouts = (e) => {
     element.classList.toggle('active')
     element.classList.toggle(notSlected)
     element.classList.toggle(selected)
-    element.classList.toggle('text-neutral-400')
+    element.classList.toggle('text-neutral-800')
     element.classList.toggle('text-neutral-100')
 }
 

@@ -166,7 +166,7 @@ const showLoader = () => {
 const startLoading = () => {
     let element = document.querySelector('.loader-bar')
     element.classList.toggle(selected)
-    let length = Math.floor(window.innerWidth)
+    let length = Math.floor((window.innerWidth/3)*2)
     let fadeDur = 0
     let timer = setInterval(() => {
         fadeDur += 5
